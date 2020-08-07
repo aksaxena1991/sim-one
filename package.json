@@ -1,0 +1,37 @@
+{
+    "name": "simulation-402",
+    "version": "1.0.0",
+    "description": "Longitudional Wave",
+    "main": "./dist/index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "webpack": "webpack --config ./webpack.config.ts",
+        "start": "nodemon ./dist/index.js",
+        "dev": "webpack-dev-server --hot-only ./dist/index.js --inline --port 8080",
+        "startDev": "nodemon ./dist/index.js webpack "
+    },
+    "author": "Anubhav Saxena",
+    "license": "ISC",
+    "dependencies": {
+        "@types/jquery": "^3.5.1",
+        "cors": "^2.8.5",
+        "create-keyframe": "^1.0.2",
+        "epxress": "0.0.1-security",
+        "insert-styles": "^1.2.1",
+        "jquery": "^3.5.1",
+        "stringify-object": "^3.3.0"
+    },
+    "devDependencies": {
+        "@types/cors": "^2.8.7",
+        "@types/express": "^4.17.7",
+        "@types/node": "^14.0.27",
+        "css-loader": "^4.2.1",
+        "nodemon": "^2.0.4",
+        "ts-loader": "^8.0.2",
+        "typescript": "^3.9.7",
+        "webpack": "^4.44.1",
+        "webpack-cli": "^3.3.12",
+        "webpack-dev-server": "^3.11.0",
+        "webpack-node-externals": "^2.5.0"
+    }
+}
