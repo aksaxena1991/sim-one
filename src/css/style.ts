@@ -27,15 +27,8 @@ export  const css = {
         'position':'relative',
         'background':'#A7ACD9'
       },
-      'particle':{
-          'height':'10px',
-          'width':'10px',
-          'margin':'-30px 0px 0px 0px',
-          'position':'absolute',
-          'border-radius':'50%',
-          'background':'#3c3c3c'
-      },
-      'wave-line':{
+      
+      'wave':{
         'height':'75px',
         'width':'2px',
         'margin-top':'-60px',

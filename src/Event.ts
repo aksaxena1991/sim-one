@@ -31,20 +31,14 @@ class Event {
         this.moveWaveAndParticle();
     }
     private moveWaveAndParticle(){
-        let waveLines = jQuery('.wave-lines');
+        let waveLines = jQuery('.wave-box');
         this.generateKeyFrames(waveLines.length, waveLines);
 
         jQuery.each(waveLines,function(i,v){
             setInterval(()=>{
             jQuery(v).css({'animation':'wave-'+i+' '+i+'s infinite','position':'absolute'});
-            if(i%5 === 0) {
-                let prt = jQuery('#particle-'+i);
-                prt.css({
-                    'animation':'wave-'+i+' '+i+'s infinite',
-                    // 'position':'absolute',
-                    'margin-left':(10*(i+7.85))+'px'});
-            }
-            }, 500 * i);
+            
+            }, 100 * i);
             
         });
         
