@@ -1,6 +1,3 @@
-// const stringifyObject = require('stringify-object') ;
-// const createKeyframe = require('create-keyframe');
-// const insertCSS = require('insert-styles');
 import jQuery from 'jquery';
 class Event {
     private id: string = '';
@@ -12,7 +9,6 @@ class Event {
         let btn = jQuery('#'+this.id);
         btn.click(() => {
             this.animateBar();
-            
         });
         
     }
@@ -56,6 +52,9 @@ class Event {
               }                 `;
         }
           jQuery('head').append('<style>'+cssKeyFrame+'</style>')
+    }
+    changeHandler(event:any) {
+        console.log(event);
     }
     
 }

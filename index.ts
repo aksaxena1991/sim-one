@@ -18,8 +18,9 @@ class Index {
         this.drawing.createMainDiv();
         this.drawing.createTrapezium();
         this.drawing.createWavelines(45);
-        this.drawing.createButton();
+        
         this.drawing.createSelect();
+        this.drawing.createButton();
         this.event.addClickEvent();
 
     }

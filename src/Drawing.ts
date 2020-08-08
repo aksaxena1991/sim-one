@@ -1,7 +1,5 @@
 import jQuery from 'jquery';
 import  {css} from '../src/css/style';
-
- // {String}
 class Drawing {
     private body = <HTMLElement> document.getElementById('body');
     constructor(){
@@ -56,17 +54,18 @@ class Drawing {
     }
     createSelect() {
         let mainDiv = jQuery('#main-div');
-        mainDiv.after(`<select>
-        <option value='default'>Default</option>
-        <option value='5'>5 Particles</option>
-        </select>`);
+        mainDiv.after(`<input type="radio" id="val1" name="option" value="4"/> 
+        <label for="val1"> 4 Particles</label>
+        <input type="radio" name="option" value="0" id="val2"/> 
+        <label for="val2"> Chain of particles</label>
+        `);
     }
     createWavelines(n: number) {
         let mainDiv = jQuery('#main-div');
         
         for (let i = 0 ; i < n ; i++) {
             let particle = '';
-            if(i%5 === 2) {
+            if(i%2 === 1) {
                 particle = `<div  id="particle-`+i+`" class="particle"></div>`;
             }
             mainDiv.append(`<div id="wave-box-`+i+`" class="wave-box">
