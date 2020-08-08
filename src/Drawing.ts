@@ -32,11 +32,31 @@ class Drawing {
         body.css(css.body);
         jQuery(this.body).append('<div  id="main-div"></div>');
         let el = jQuery('#main-div');
-        el.css(css.mainDiv)
+        el.css(css.mainDiv);
+        this.createLayout();
+        
         
     }
+
+    private createLayout(){
+        let titleDiv = document.createElement('div');
+        titleDiv.id = 'title-div';
+        titleDiv.className = 'title-div';
+        let instDiv = document.createElement('div');
+        instDiv.id = 'inst-div';
+        instDiv.className = 'inst-div';
+        let controls = document.createElement('div');
+        controls.id = 'control-div';
+        controls.className = 'control-div';
+        let activityDiv = document.createElement('div');
+        activityDiv.id = 'activity-div';
+        activityDiv.className = 'activity-div';
+        let el = jQuery('#main-div');
+        el.append(titleDiv).append(instDiv).append(controls).append(activityDiv);
+
+    }
     createTrapezium() {
-        let mainDiv = jQuery('#main-div');
+        let mainDiv = jQuery('#activity-div');
         mainDiv.append(`<div id="trapezoid">
         <div  id="trapezium"></div>
         <div  id="trapezium-elbow"></div>
@@ -45,6 +65,7 @@ class Drawing {
         el.css(css.trapezoid);
         let te = jQuery('#trapezium-elbow');
         te.css(css["trapezium-elbow"]);
+        this.createWavelines(45);
     }
     
     createButton() {
@@ -60,8 +81,8 @@ class Drawing {
         <label for="val2"> Chain of particles</label>
         `);
     }
-    createWavelines(n: number) {
-        let mainDiv = jQuery('#main-div');
+   private createWavelines(n: number) {
+        let mainDiv = jQuery('#activity-div');
         
         for (let i = 0 ; i < n ; i++) {
             let particle = '';
