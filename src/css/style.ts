@@ -9,7 +9,7 @@ export  const css = {
         'height': '500px',
         'width':'550px'
     },
-    'trapezoid': {
+    'trapezium': {
         'border-bottom': '15px solid #A7ACD9',
         'border-left': '10px solid transparent',
         'border-right': '10px solid transparent',
@@ -18,7 +18,7 @@ export  const css = {
         'position':'relative',
         'margin-left':'-20px',
         'transform':'rotate(-90deg)',
-        'margin-top':'200px'
+        'margin-top':'125px'
       },
       'trapezium-elbow':{
         'height': '45px',

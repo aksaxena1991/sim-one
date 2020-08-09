@@ -81,6 +81,7 @@ class Drawing {
         <style>
         .title-div{
             padding: 15px;
+            height: 20px;
             border-bottom: 1px solid black;
         }
         .title-div span {
@@ -88,11 +89,12 @@ class Drawing {
         }
         div#inst-div {
             padding: 0px 15px 0px 15px;
+            height: 70px;
             border-bottom: 1px solid black;
         }
         div#control-div {
-            
-            
+            border-bottom: 1px solid black;
+            height: 50px;
         }
         div#left {
             float: left;
@@ -112,16 +114,30 @@ class Drawing {
             color: white;
         }
         button#start {
-            
             border-color: #2bbc2b;
             background: #2bbc2b;
-            
         }
         button#reset {
-            
             border-color: #e22020;
             background: #e22020;
-            
+        }
+        div#activity-div {
+            height: 255px;
+            margin-top: 0px;
+        }
+        label{
+            color: #058686;
+            font-weight: normal;
+        }
+        input[type='radio']:checked:after {
+            width: 7px;
+            height: 7px;
+            border-radius: 15px;
+            margin: 0px 1px;
+            background-color: #058686;
+            content: '';
+            display: inline-block;
+            border: 2px solid white;
         }
         </style>`;
         jQuery('head').append(style);
@@ -133,7 +149,7 @@ class Drawing {
         <div  id="trapezium-elbow"></div>
         </div>`);
         let el = jQuery('#trapezium');
-        el.css(css.trapezoid);
+        el.css(css.trapezium);
         let te = jQuery('#trapezium-elbow');
         te.css(css["trapezium-elbow"]);
         this.createWavelines(45);
