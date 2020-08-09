@@ -1,17 +1,20 @@
 import jQuery from 'jquery';
 class Event {
-    private id: string = '';
+    private startID: string = '';
+    private resetID: string = '';
     
-    constructor(id: string){
-        this.id = id;
+    constructor(startID: string, resetID: string){
+        this.startID = startID;
+        this.resetID = resetID;
     }
-    addClickEvent() {
-        let btn = jQuery('#'+this.id);
+    addStartEvent() {
+        let btn = jQuery('#'+this.startID);
         btn.click(() => {
             this.animateBar();
         });
         
     }
+    addResetEvent() {}
     
     animateBar() {
         let trapezium = jQuery('#trapezium');

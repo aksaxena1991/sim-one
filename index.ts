@@ -10,16 +10,15 @@ class Index {
     constructor() {
         this.inst = new CreateCanvas('canvas',500,500);
         this.drawing = new Drawing();
-        this.event = new Event('evt');
+        this.event = new Event('start','reset');
 
     }
     init() {
         this.drawing.addScript();
         this.drawing.createMainDiv();
         this.drawing.createTrapezium();
-        this.drawing.createSelect();
-        this.drawing.createButton();
-        this.event.addClickEvent();
+        this.event.addStartEvent();
+        this.event.addResetEvent();
 
     }
 }
