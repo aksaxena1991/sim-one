@@ -148,7 +148,7 @@ class Drawing {
         el.css(css.trapezium);
         let te = jQuery('#trapezium-elbow');
         te.css(css["trapezium-elbow"]);
-        this.createWavelines(45);
+        this.createWavelines(obj.default.waves.value);
     }
     
     private createButton() {
@@ -179,12 +179,73 @@ class Drawing {
         <label for="${obj.options["id-two"]}"> ${obj.options["label-two"]}</label> </div>
         `);
         this.createButton();
+        this.selectForDefault();
+        
+    }
+    private selectForDefault() {
+        let opt = jQuery('input[name='+obj.options.name+']');
+        let value = '4';
+        let that = this;
+        
+        jQuery(opt).click(function(){
+           let v = jQuery(this).val();
+           let waveBox = jQuery('.wave-box');
+           if(v== obj.options["value-one"]) {
+                obj.default.particle.value = parseInt(obj.options["value-one"]);
+            
+           }
+           else {
+            obj.default.particle.value = parseInt(obj.options["value-two"]);
+           }
+           waveBox.each((i,v)=> {
+            jQuery(v).find('.'+obj.particle.class).remove();
+            let particle = '';
+            if(i%obj.default.particle.value === 3) {
+                particle = `<div  id="${obj.particle.id}-`+i+`" class="${obj.particle.class}"></div>`;
+            }
+            jQuery(v).append(particle);
+           });
+           that.colorToParticle(v)
+        });
+        
+        
+    }
+    colorToParticle(particleCount: any) {
+        let count = jQuery('.'+obj.particle.class)
+         let div  = jQuery('.'+obj.particle.class);
+        if(count.length < particleCount) {
+            obj.default["particle-color"].forEach((val,key) => {
+                jQuery(div[key]).css({
+                    'border':'1px solid black',
+                    'background':val
+                });
+            });
+        } else {
+            jQuery(div).each(function(key,val){
+                
+                if(key < 3 || key > 6){
+                    jQuery(this).css({
+                        'border':'1px solid black',
+                        'background':'white'
+                    });
+                } else {
+                    jQuery(this).css({
+                        'border':'1px solid black',
+                        'background':obj.default["particle-color"][key-3]
+                    }
+                    );
+                }
+
+            });
+        }
+
     }
     createWavelines(n: number) {
         let mainDiv = jQuery('#'+obj["activity-container"].id);
+        
         for (let i = 0 ; i < n ; i++) {
             let particle = '';
-            if(i%2 === 1) {
+            if(i%obj.default.particle.value === 3) {
                 particle = `<div  id="${obj.particle.id}-`+i+`" class="${obj.particle.class}"></div>`;
             }
             mainDiv.append(`<div id="wave-box-`+i+`" class="wave-box">

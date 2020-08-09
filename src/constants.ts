@@ -32,10 +32,10 @@ export const obj = {
         name:'opt',
         class:'option',
         'id-one':'value1',
-        'value-one':'4',
+        'value-one':'11',
         'label-one':'4 Particles',
         'id-two':'value2',
-        'value-two':'infinite',
+        'value-two':'4',
         'label-two':'Chain of particles',
     },
     'buttons':{
@@ -53,5 +53,14 @@ export const obj = {
     'particle':{
         id:'part',
         class:'part'
+    },
+    'default':{
+        'particle':{
+            'value': 11
+        },
+        'waves': {
+            'value':45
+        },
+        'particle-color':['#FF0000','#0000FF','#008000','#FF00FF']
     }
 };

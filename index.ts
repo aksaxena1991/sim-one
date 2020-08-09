@@ -1,6 +1,7 @@
 import CreateCanvas from './src/canvas-interface';
 import Drawing from "./src/Drawing";
 import Event from './src/Event';
+import {obj} from './src/constants';
 
 
 class Index {
@@ -10,7 +11,7 @@ class Index {
     constructor() {
         this.inst = new CreateCanvas('canvas',500,500);
         this.drawing = new Drawing();
-        this.event = new Event('start','reset');
+        this.event = new Event(obj.buttons.start.id,obj.buttons.reset.id);
 
     }
     init() {

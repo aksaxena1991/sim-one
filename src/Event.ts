@@ -1,5 +1,6 @@
 import jQuery from 'jquery';
 import Drawing from './Drawing';
+import {obj} from './constants';
 
 class Event {
     private startID: string = '';
@@ -28,7 +29,7 @@ class Event {
             elbow.css('animation','');
             let waveLines = jQuery('.wave-box');
             waveLines.remove();
-            this.drawing.createWavelines(45);
+            this.drawing.createWavelines(obj.default.waves.value);
         
         });
         
@@ -72,9 +73,8 @@ class Event {
         }
           jQuery('head').append('<style>'+cssKeyFrame+'</style>')
     }
-    changeHandler(event:any) {
-        console.log(event);
-    }
+    
+    
     
 }
 export default Event;
