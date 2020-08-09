@@ -17,6 +17,7 @@ class Index {
         this.drawing.addScript();
         this.drawing.createMainDiv();
         this.drawing.createTrapezium();
+        this.drawing.createControls();
         this.event.addStartEvent();
         this.event.addResetEvent();
 

@@ -1,5 +1,6 @@
 import jQuery from 'jquery';
 import  {css} from '../src/css/style';
+import {obj} from './constants';
 class Drawing {
     private body = <HTMLElement> document.getElementById('body');
     constructor(){
@@ -30,6 +31,7 @@ class Drawing {
     createMainDiv() {
         let body = jQuery(this.body);
         body.css(css.body);
+        console.log(obj["main-container"].id);
         jQuery(this.body).append('<div  id="main-div"></div>');
         let el = jQuery('#main-div');
         el.css(css.mainDiv);
@@ -174,7 +176,7 @@ class Drawing {
 
 
     }
-    private createControls() {
+    createControls() {
         let mainDiv = jQuery('#control-div');
         mainDiv.append(`<div id="left"><label>Show</label> <input type="radio" id="val1" name="option" value="4"/> 
         <label for="val1"> 4 Particles</label>
@@ -183,7 +185,7 @@ class Drawing {
         `);
         this.createButton();
     }
-   private createWavelines(n: number) {
+    createWavelines(n: number) {
         let mainDiv = jQuery('#activity-div');
         for (let i = 0 ; i < n ; i++) {
             let particle = '';
@@ -195,7 +197,7 @@ class Drawing {
             let wave = jQuery('#wave-box-'+i);
             wave.css(css["wave"]).css({'margin-left':(10*(i+(5.3)))+'px'});
         }
-        this.createControls();
+        
     }
 }
 export default Drawing;
