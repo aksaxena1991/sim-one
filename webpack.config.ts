@@ -1,17 +1,14 @@
 const webpack = require("webpack");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const path = require("path");
-const nodeExternals = require("webpack-node-externals");
 
 module.exports = {
   entry: [ "./index.ts"],
   watch: true,
-  devtool: 'inline-source-map',
-  target: "node",
-  externals: [
-    nodeExternals({
-      // whitelist: ["webpack/hot/poll?100"]
-    })
-  ],
+  optimization: {
+    minimizer: [new UglifyJsPlugin()],
+  },
   module: {
     
     rules: [
@@ -25,18 +22,26 @@ module.exports = {
   },
   mode: "development",
   devServer: {
-    contentBase: './dist',
+    contentBase: './build',
      hot: true,
   },
   resolve: {
     extensions: [".ts", ".js"]
   },
-  plugins: [
-    
-   new webpack.HotModuleReplacementPlugin()
-  ],
+  plugins:[new HtmlWebpackPlugin({
+    templateContent: `
+    <html>
+      <head>
+      
+      </head>
+      <body id="body">
+      </body>
+    </html>
+  `,
+  title:'Simulation | Longitudinal Wave'
+  })],
   output: {
-    path: path.join(__dirname, "dist"),
+    path: path.join(__dirname, "build"),
     filename: "index.js"
   }
 };
