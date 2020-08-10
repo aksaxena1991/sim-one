@@ -1,26 +1,17 @@
-import CreateCanvas from './src/canvas-interface';
-import Drawing from "./src/Drawing";
-import Event from './src/Event';
-import {obj} from './src/constants';
 
-
+import Drawing from "./src/drawing";
+import CSS from "./src/css";
 class Index {
-    private inst: any;
     private drawing: any;
-    private event: any;
+    private css: any;
     constructor() {
-        this.inst = new CreateCanvas('canvas',500,500);
+    
         this.drawing = new Drawing();
-        this.event = new Event(obj.buttons.start.id,obj.buttons.reset.id);
-
+        this.css = new CSS();
+        
     }
     init() {
-        this.drawing.addScript();
-        this.drawing.createMainDiv();
-        this.drawing.createTrapezium();
-        this.drawing.createControls();
-        this.event.addStartEvent();
-        this.event.addResetEvent();        
+        this.drawing.createMainContainer();
 
     }
 }
