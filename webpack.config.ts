@@ -1,6 +1,7 @@
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 const path = require("path");
 
 module.exports = {
@@ -28,7 +29,17 @@ module.exports = {
   resolve: {
     extensions: [".ts", ".js"]
   },
-  plugins:[new HtmlWebpackPlugin({
+  plugins:[
+    new CopyPlugin({
+      patterns: [
+        {
+          from: 'assets/*.png',
+          to: 'assets',
+          context: '../simulation-one/',
+        },
+      ],
+    }),
+    new HtmlWebpackPlugin({
     templateContent: `
     <html>
       <head>

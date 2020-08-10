@@ -101,7 +101,7 @@ class Drawing {
         div#${obj["float-left"].id}, div#${obj["float-right"].id} {
             padding: 10px 15px 0px 15px;
         }
-        .btn {
+        .${obj.buttons.reset.class} {
             width: 90px;
             margin: 0px 0px 0px 10px;
             border-radius: 15px;
@@ -112,10 +112,12 @@ class Drawing {
         button#${obj.buttons.start.id} {
             border-color: #2bbc2b;
             background: #2bbc2b;
+            outline:none;
         }
-        button#reset {
+        button#${obj.buttons.reset.id} {
             border-color: #e22020;
             background: #e22020;
+            outline:none;
         }
         div#${obj["activity-container"].id} {
             height: 255px;
@@ -135,6 +137,7 @@ class Drawing {
             display: inline-block;
             border: 2px solid white;
         }
+        
         </style>`;
         jQuery('head').append(style);
     }
@@ -173,18 +176,19 @@ class Drawing {
     createControls() {
         let mainDiv = jQuery('#'+obj["control-container"].id);
         mainDiv.append(`<div id="${obj["float-left"].id}" class="${obj["float-left"].class}"><label>Show</label>
-        <input type="${obj.options.type}" id="${obj.options["id-one"]}" name="${obj.options.name}" value="${obj.options["value-one"]}"/> 
+        <input type="${obj.options.type}" id="${obj.options["id-one"]}" checked name="${obj.options.name}" value="${obj.options["value-one"]}"/> 
         <label for="${obj.options["id-one"]}"> ${obj.options["label-one"]}</label>
         <input type="${obj.options.type}" name="${obj.options.name}" value="${obj.options["value-two"]}" id="${obj.options["id-two"]}"/> 
         <label for="${obj.options["id-two"]}"> ${obj.options["label-two"]}</label> </div>
         `);
         this.createButton();
+        this.colorToParticle(obj.options["value-one"]);
         this.selectForDefault();
         
     }
-    private selectForDefault() {
+     selectForDefault() {
         let opt = jQuery('input[name='+obj.options.name+']');
-        let value = '4';
+        
         let that = this;
         
         jQuery(opt).click(function(){
@@ -207,10 +211,9 @@ class Drawing {
            });
            that.colorToParticle(v)
         });
-        
-        
     }
     colorToParticle(particleCount: any) {
+        
         let count = jQuery('.'+obj.particle.class)
          let div  = jQuery('.'+obj.particle.class);
         if(count.length < particleCount) {

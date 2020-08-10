@@ -62,5 +62,25 @@ export const obj = {
             'value':45
         },
         'particle-color':['#FF0000','#0000FF','#008000','#FF00FF']
+    },
+    'arrow':{
+        'title-class':'title-arrow',
+        'arrow-class':'arrow',
+        'two-way':{
+            'src':'../assets/assets/two-way-arrow.png',
+            id:'two-way',
+            title:{
+                id:'title-one-way',
+                text:'Direction of vibration of the particle'
+            }
+        },
+        'one-way':{
+            'src':'../assets/assets/single-way-arrow.png',
+            id:'one-way',
+            title:{
+                id:'title-two-way',
+                text:'Direction of travel of the wave'
+            }
+        }
     }
 };

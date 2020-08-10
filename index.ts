@@ -20,7 +20,7 @@ class Index {
         this.drawing.createTrapezium();
         this.drawing.createControls();
         this.event.addStartEvent();
-        this.event.addResetEvent();
+        this.event.addResetEvent();        
 
     }
 }
