@@ -21,32 +21,6 @@ export const obj = {
         id:'activity',
         class: 'activity'
     },
-    'action-buttons':{
-        type:'button',
-        class:'btn',
-        buttons:[
-            {
-                id: 'Start',
-                text:'Start'
-            },{
-                id:'Reset',
-                text:'Reset'
-            }
-        ]
-    },
-    'options':[
-        {
-            type:'select',
-            optionList:[
-                {
-                    value:'default',
-                    text:'Shape'
-                },{
-                    value:''
-                }
-            ]
-        }
-    ]
     
         // 'particle-color':['#FF0000','#0000FF','#008000','#FF00FF']
         
