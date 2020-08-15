@@ -22,7 +22,9 @@
     vertical-align: middle;
 }
 
-
+/* .removeMarg {
+	margin: 0px 0px 10px 0px !important;
+} */
 
 .btnSmallStyle {
 	min-width: 120px !important;
@@ -31,6 +33,10 @@
 .experimentArea {
 	position: relative;
 	margin: 0 auto;
+	/* width: 992px;
+	height: 500px;
+	padding-top: 0px; */
+	/* border: 30px solid #f4f4f4; */
 	background-color: #f4f4f4;
 }
 
@@ -289,55 +295,7 @@
 	/* min-height: 298px; */
 	/* text-align: center; */
 }
-.vibrator{
-	position: absolute;
-    top: 161px;
-    left: 0px;
-    width: 93px;
-    height: 170px;
-	background-image: url('../img/vibrator.png');
-	background-repeat: no-repeat;
-    background-size: contain;
-}
-.wave{
-	position: absolute;
-    top: 161px;
-    
-    width: 16px;
-    height: 170px;
-	
-}
-.plane_wave {
-	left: 100px;
-	background-image: url('../img/plane_wave.png');
-	background-repeat: no-repeat;
-    background-size: contain;
-}
-.white_particle_wave{
-	background-image: url('../img/white_particle_wave.png');
-	background-repeat: no-repeat;
-    background-size: contain;
-}
-.red_particle_wave{
-	background-image: url('../img/red_particle_wave.png');
-	background-repeat: no-repeat;
-    background-size: contain;
-}
-.blue_particle_wave{
-	background-image: url('../img/blue_particle_wave.png');
-	background-repeat: no-repeat;
-    background-size: contain;
-}
-.green_particle_wave{
-	background-image: url('../img/green_particle_wave.png');
-	background-repeat: no-repeat;
-    background-size: contain;
-}
-.magenta_particle_wave{
-	background-image: url('../img/magenta_particle_wave.png');
-	background-repeat: no-repeat;
-    background-size: contain;
-}
+
 .imageLongitude{
 	position: absolute;
     top: 161px;

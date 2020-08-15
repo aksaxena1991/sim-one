@@ -62,7 +62,7 @@ angular.module('playerApp', ['ngSanitize'])
 
           thisRef.onC1Change = function (e) {
             var c1 = thisRef.currentC1Val;
-            console.log(c1,'anubhav')
+            console.log(c1)
             if(c1 == 'r1'){
                 thisRef.fourparticle = true
                 thisRef.chainOfParticle = false
@@ -110,4 +110,45 @@ angular.module('playerApp', ['ngSanitize'])
         };
     }])
 
-    
+    .directive('btnState', ['$window', function($window) {
+
+        var elements = [];
+
+        return {
+            restrict: "A",
+            link: function(scope, element, attr) {
+
+                elements.push(element);
+
+                element.click(function() {
+
+                    for (var i = 0; i < elements.length; i++) {
+                        angular.element(elements[i][0]).removeClass("dim"); // remove from other
+                    }
+
+                    element.addClass("dim");
+                });
+            }
+        };
+    }])
+    .directive('changeValue', ['$window', function($window) {
+        return {
+            restrict: "A",
+            link: function(scope, element, attr) {
+
+                //
+                var toggleVals = (attr.changeValue).split(',');
+
+                element.click(function() {
+                    var content = element[0].textContent;
+                    // 
+                    if (toggleVals[0] == content) {
+                        $(element)[0].textContent = toggleVals[1];
+                    } else {
+                        $(element)[0].textContent = toggleVals[0];
+                    }
+                });
+
+            }
+        }
+    }]);

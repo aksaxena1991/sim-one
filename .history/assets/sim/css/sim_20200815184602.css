@@ -302,39 +302,15 @@
 .wave{
 	position: absolute;
     top: 161px;
-    
-    width: 16px;
+    left: 100px;
+    width: 6px;
     height: 170px;
-	
-}
-.plane_wave {
-	left: 100px;
 	background-image: url('../img/plane_wave.png');
 	background-repeat: no-repeat;
     background-size: contain;
 }
 .white_particle_wave{
 	background-image: url('../img/white_particle_wave.png');
-	background-repeat: no-repeat;
-    background-size: contain;
-}
-.red_particle_wave{
-	background-image: url('../img/red_particle_wave.png');
-	background-repeat: no-repeat;
-    background-size: contain;
-}
-.blue_particle_wave{
-	background-image: url('../img/blue_particle_wave.png');
-	background-repeat: no-repeat;
-    background-size: contain;
-}
-.green_particle_wave{
-	background-image: url('../img/green_particle_wave.png');
-	background-repeat: no-repeat;
-    background-size: contain;
-}
-.magenta_particle_wave{
-	background-image: url('../img/magenta_particle_wave.png');
 	background-repeat: no-repeat;
     background-size: contain;
 }
