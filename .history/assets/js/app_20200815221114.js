@@ -179,7 +179,7 @@ var app = angular.module('playerApp', ['ngSanitize']);
             return function($scope, element, attributes) {
                 
                 element.children('.wave').each(function(i,v){
-                
+                    // console.log(v.style.left);
                     var strID = v.id;
                     var id = parseInt(strID.split('_')[1]);
                     left = left + (30/2.2);

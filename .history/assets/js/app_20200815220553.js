@@ -14,7 +14,7 @@ var app = angular.module('playerApp', ['ngSanitize']);
         thisRef.animMode = 'fourparticles';
         thisRef.resetActBool = true;
         thisRef.timeInterval = 0.04 //  in second
-        thisRef.currentC1Val = "r1";
+        thisRef.currentValue = "r1";
         thisRef.currentC2Val = "r2";
         thisRef.runFlag = 1
         var xBase = 90;
@@ -60,10 +60,11 @@ var app = angular.module('playerApp', ['ngSanitize']);
               console.log('jhvgv')
           }
 
-          thisRef.onC1Change = function (e) {
-            var c1 = thisRef.currentC1Val;
+          thisRef.onChange = function (e) {
+              debugger;
+            var val = thisRef.currentValue;
             // console.log(c1,'anubhav')
-            if(c1 == 'r1'){
+            if(val == 'r1'){
                 thisRef.fourparticle = true
                 thisRef.chainOfParticle = false
                 thisRef.directionOfVibration = "";
@@ -72,12 +73,9 @@ var app = angular.module('playerApp', ['ngSanitize']);
                 thisRef.bothWayArrowDresc = false
                 thisRef.resetUI();
             }
-        }
-
-        thisRef.onC2Change = function (e) {
-            var c2 = thisRef.currentC2Val;
-           console.log(c2)
-            if(c2 = 'r2'){
+        //     var c2 = thisRef.currentC2Val;
+        //    console.log(c2)
+            if(val = 'r2'){
                 thisRef.fourparticle = false
                 thisRef.chainOfParticle = true
                 thisRef.directionOfVibration = "";
@@ -89,6 +87,8 @@ var app = angular.module('playerApp', ['ngSanitize']);
                 angular.element(".startsim").html("Start");
             }
         }
+
+        
 
           thisRef.resetUI = function () {
             thisRef.timeInterval = 0.04

@@ -27,10 +27,10 @@
 				<div class="formFields">
 					<label>Show </label>
 
-					<input type="radio" name="r1" id="r1" value="fourparticles" ng-model="animMode" ng-click="onC1Change($event);"/>
+					<input type="radio" name="r1" id="r1" value="fourparticles" ng-model="animMode" ng-click="onChange($event);"/>
 					<label class="input_radio removeMarg" name="r1" id="r1" value="fourparticles" for="r1">4 particles</label>
 					
-					<input type="radio" name="r2" id="r2" value="chainOfParticles" ng-model="animMode" ng-click="onC2Change($event);"/>
+					<input type="radio" name="r2" id="r2" value="chainOfParticles" ng-model="animMode" ng-click="onChange($event);"/>
 					<label class="input_radio removeMarg" name="r2" id="r2" value="chainOfParticles" for="r2">chain of particles</label>
 				
 					<span class="actBtns rounded green startsim startBtnML" ng-click="startMove($event)" ng-class="{'disable': !resetActBool}">Start</span>

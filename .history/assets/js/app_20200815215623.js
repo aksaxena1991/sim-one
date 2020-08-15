@@ -175,29 +175,32 @@ var app = angular.module('playerApp', ['ngSanitize']);
         <div class="wave plane_wave" id="wave_60"></div>`;
         dir.compile = function(element, attributes){
             var left = 90;
-            
+            // element.css("border", "1px solid #cccccc");
+             //linkFunction is linked with each element with scope to get the element specific data.
             return function($scope, element, attributes) {
-                
+                // console.log(element.children('.wave').length)
                 element.children('.wave').each(function(i,v){
-                
+                    // console.log(v.style.left);
                     var strID = v.id;
                     var id = parseInt(strID.split('_')[1]);
-                    left = left + (30/2.2);
+                    
                     
                     if(i+1 === id) {
-                        
+                        left = left + (30/2);
                         element.children('#'+strID).css('left',left+'px');
                         
                     }
                     if(id%2 ===0) {
-                        element.children('#'+strID).css('left',left-5+'px');
                         element.children('#'+strID).removeClass('plane_wave').addClass('white_particle_wave')
                     }
-                    
+                    // v.style.left = (left+10)+ 'px'
+                    // element.children('.wave')[i].css('left',"100px")
                 })
-                
+                // element.html(`Student: , 
+                // Roll No: `);
+                // element.css("background-color", "#ff00ff");
             }
-            
+            // return linkFunction;
         }
         return dir;
         });

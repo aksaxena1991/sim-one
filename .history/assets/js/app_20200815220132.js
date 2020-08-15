@@ -175,11 +175,12 @@ var app = angular.module('playerApp', ['ngSanitize']);
         <div class="wave plane_wave" id="wave_60"></div>`;
         dir.compile = function(element, attributes){
             var left = 90;
-            
+            // element.css("border", "1px solid #cccccc");
+             //linkFunction is linked with each element with scope to get the element specific data.
             return function($scope, element, attributes) {
-                
+                // console.log(element.children('.wave').length)
                 element.children('.wave').each(function(i,v){
-                
+                    // console.log(v.style.left);
                     var strID = v.id;
                     var id = parseInt(strID.split('_')[1]);
                     left = left + (30/2.2);

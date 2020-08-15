@@ -113,91 +113,76 @@ var app = angular.module('playerApp', ['ngSanitize']);
         dir.restrict = 'E';
         dir.template= `
         <div class="vibrator"></div>
-        <div class="wave plane_wave" id="wave_1"></div>
-        <div class="wave plane_wave" id="wave_2"></div>
-        <div class="wave plane_wave" id="wave_3"></div>
-        <div class="wave plane_wave" id="wave_4"></div>
-        <div class="wave plane_wave" id="wave_5"></div>
-        <div class="wave plane_wave" id="wave_6"></div>
-        <div class="wave plane_wave" id="wave_7"></div>
-        <div class="wave plane_wave" id="wave_8"></div>
-        <div class="wave plane_wave" id="wave_9"></div>
-        <div class="wave plane_wave" id="wave_10"></div>
-        <div class="wave plane_wave" id="wave_11"></div>
-        <div class="wave plane_wave" id="wave_12"></div>
-        <div class="wave plane_wave" id="wave_13"></div>
-        <div class="wave plane_wave" id="wave_14"></div>
-        <div class="wave plane_wave" id="wave_15"></div>
-        <div class="wave plane_wave" id="wave_16"></div>
-        <div class="wave plane_wave" id="wave_17"></div>
-        <div class="wave plane_wave" id="wave_18"></div>
-        <div class="wave plane_wave" id="wave_19"></div>
+        <div class="wave" id="wave_1"></div>
+        <div class="wave" id="wave_2"></div>
+        <div class="wave" id="wave_3"></div>
+        <div class="wave" id="wave_4"></div>
+        <div class="wave" id="wave_5"></div>
+        <div class="wave" id="wave_6"></div>
+        <div class="wave" id="wave_7"></div>
+        <div class="wave" id="wave_8"></div>
+        <div class="wave" id="wave_9"></div>
+        <div class="wave" id="wave_10"></div>
+        <div class="wave" id="wave_11"></div>
+        <div class="wave" id="wave_12"></div>
+        <div class="wave" id="wave_13"></div>
+        <div class="wave" id="wave_14"></div>
+        <div class="wave" id="wave_15"></div>
+        <div class="wave" id="wave_16"></div>
+        <div class="wave" id="wave_17"></div>
+        <div class="wave" id="wave_18"></div>
+        <div class="wave" id="wave_19"></div>
         <div class="wave red_particle_wave" id="wave_20"></div>
-        <div class="wave plane_wave" id="wave_21"></div>
-        <div class="wave plane_wave" id="wave_22"></div>
-        <div class="wave plane_wave" id="wave_23"></div>
-        <div class="wave plane_wave" id="wave_24"></div>
-        <div class="wave plane_wave" id="wave_25"></div>
-        <div class="wave plane_wave" id="wave_26"></div>
-        <div class="wave plane_wave" id="wave_27"></div>
-        <div class="wave plane_wave" id="wave_28"></div>
-        <div class="wave plane_wave" id="wave_29"></div>
+        <div class="wave" id="wave_21"></div>
+        <div class="wave" id="wave_22"></div>
+        <div class="wave" id="wave_23"></div>
+        <div class="wave" id="wave_24"></div>
+        <div class="wave" id="wave_25"></div>
+        <div class="wave" id="wave_26"></div>
+        <div class="wave" id="wave_27"></div>
+        <div class="wave" id="wave_28"></div>
+        <div class="wave" id="wave_29"></div>
         <div class="wave blue_particle_wave" id="wave_30"></div>
-        <div class="wave plane_wave" id="wave_31"></div>
-        <div class="wave plane_wave" id="wave_32"></div>
-        <div class="wave plane_wave" id="wave_33"></div>
-        <div class="wave plane_wave" id="wave_34"></div>
-        <div class="wave plane_wave" id="wave_35"></div>
+        <div class="wave" id="wave_31"></div>
+        <div class="wave" id="wave_32"></div>
+        <div class="wave" id="wave_33"></div>
+        <div class="wave" id="wave_34"></div>
+        <div class="wave" id="wave_35"></div>
         <div class="wave green_particle_wave" id="wave_36"></div>
-        <div class="wave plane_wave" id="wave_37"></div>
-        <div class="wave plane_wave" id="wave_38"></div>
-        <div class="wave plane_wave" id="wave_39"></div>
-        <div class="wave plane_wave" id="wave_40"></div>
-        <div class="wave plane_wave" id="wave_41"></div>
-        <div class="wave plane_wave" id="wave_42"></div>
-        <div class="wave plane_wave" id="wave_43"></div>
-        <div class="wave plane_wave" id="wave_44"></div>
-        <div class="wave plane_wave" id="wave_45"></div>
-        <div class="wave plane_wave" id="wave_46"></div>
-        <div class="wave plane_wave" id="wave_47"></div>
+        <div class="wave" id="wave_37"></div>
+        <div class="wave" id="wave_38"></div>
+        <div class="wave" id="wave_39"></div>
+        <div class="wave" id="wave_40"></div>
+        <div class="wave" id="wave_41"></div>
+        <div class="wave" id="wave_42"></div>
+        <div class="wave" id="wave_43"></div>
+        <div class="wave" id="wave_44"></div>
+        <div class="wave" id="wave_45"></div>
+        <div class="wave" id="wave_46"></div>
+        <div class="wave" id="wave_47"></div>
         <div class="wave magenta_particle_wave" id="wave_48"></div>
-        <div class="wave plane_wave" id="wave_49"></div>
-        <div class="wave plane_wave" id="wave_50"></div>
-        <div class="wave plane_wave" id="wave_51"></div>
-        <div class="wave plane_wave" id="wave_52"></div>
-        <div class="wave plane_wave" id="wave_53"></div>
-        <div class="wave plane_wave" id="wave_54"></div>
-        <div class="wave plane_wave" id="wave_55"></div>
-        <div class="wave plane_wave" id="wave_56"></div>
-        <div class="wave plane_wave" id="wave_57"></div>
-        <div class="wave plane_wave" id="wave_58"></div>
-        <div class="wave plane_wave" id="wave_59"></div>
-        <div class="wave plane_wave" id="wave_60"></div>`;
+        <div class="wave" id="wave_49"></div>
+        <div class="wave" id="wave_50"></div>
+        <div class="wave" id="wave_51"></div>
+        <div class="wave" id="wave_52"></div>
+        <div class="wave" id="wave_53"></div>
+        <div class="wave" id="wave_54"></div>
+        <div class="wave" id="wave_55"></div>
+        <div class="wave" id="wave_56"></div>
+        <div class="wave" id="wave_57"></div>
+        <div class="wave" id="wave_58"></div>
+        <div class="wave" id="wave_59"></div>
+        <div class="wave" id="wave_60"></div>`;
         dir.compile = function(element, attributes){
-            var left = 90;
-            
+            // element.css("border", "1px solid #cccccc");
+             //linkFunction is linked with each element with scope to get the element specific data.
             return function($scope, element, attributes) {
-                
-                element.children('.wave').each(function(i,v){
-                
-                    var strID = v.id;
-                    var id = parseInt(strID.split('_')[1]);
-                    left = left + (30/2.2);
-                    
-                    if(i+1 === id) {
-                        
-                        element.children('#'+strID).css('left',left+'px');
-                        
-                    }
-                    if(id%2 ===0) {
-                        element.children('#'+strID).css('left',left-5+'px');
-                        element.children('#'+strID).removeClass('plane_wave').addClass('white_particle_wave')
-                    }
-                    
-                })
-                
+                console.log(element.children('.wave').length)
+                // element.html(`Student: , 
+                // Roll No: `);
+                // element.css("background-color", "#ff00ff");
             }
-            
+            // return linkFunction;
         }
         return dir;
         });
