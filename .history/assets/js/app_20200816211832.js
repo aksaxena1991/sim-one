@@ -14,6 +14,8 @@ var app = angular.module('playerApp', ['ngSanitize']);
         thisRef.animMode = 'fourparticles';
         thisRef.resetActBool = true;
         thisRef.timeInterval = 0.04 //  in second
+        thisRef.currentC1Val = "r1";
+        thisRef.currentC2Val = "r2";
         thisRef.runFlag = 1
         var width = angular.element('.vibrationArea').width();
         thisRef.oneWayArrowDresc = false;
@@ -140,8 +142,11 @@ var app = angular.module('playerApp', ['ngSanitize']);
             }
 
           }
-        thisRef.resetUI = function () {
+        
+
+          thisRef.resetUI = function () {
             thisRef.timeInterval = 0.04
+            // $interval.cancel(thisRef.counterInterval);
             thisRef.directionOfVibration = "";
             thisRef.directionOfPropagation = "";
             thisRef.oneWayArrowDresc = false
@@ -149,10 +154,8 @@ var app = angular.module('playerApp', ['ngSanitize']);
             thisRef.fourparticle = true
             thisRef.chainOfParticle = false
             thisRef.animMode = 'fourparticles';
-            angular.element('.vibrator').removeClass('vibrate');
-            angular.element('.startsim').html('Start')
             angular.element('.wave').remove();
-            angular.element('.vibrationArea').children('element').append(`<div class="wave plane_wave" id="wave_1"></div>
+            angular.element('vibrationArea').append(`<div class="wave plane_wave" id="wave_1"></div>
             <div class="wave plane_wave" id="wave_2"></div>
             <div class="wave plane_wave" id="wave_3"></div>
             <div class="wave plane_wave" id="wave_4"></div>
@@ -216,29 +219,18 @@ var app = angular.module('playerApp', ['ngSanitize']);
             var waves = angular.element('.wave');
             waves.each(function(i,v){
                 var strID = v.id;
-                    var id = parseInt(strID.split('_')[1]);
-                    left = left + (30/2.2);
-                    if(i+1 === id) {
-                        angular.element('#'+strID).css('left',left+'px');
-                        
-                    }
-                    if(id%2 ===0) {
-                        if(angular.element('#'+strID).hasClass('red_particle_wave') && angular.element('#'+strID).hasClass('green_particle_wave') && angular.element('#'+strID).hasClass('magenta_particle_wave') && angular.element('#'+strID).hasClass('blue_particle_wave')) {
-                            angular.element('#'+strID).css('left',left+'px');
-                            angular.element('#'+strID).removeClass('plane_wave').addClass('white_particle_wave')
-                        }
-                        if(angular.element('#'+strID).hasClass('red_particle_wave') || angular.element('#'+strID).hasClass('green_particle_wave') || angular.element('#'+strID).hasClass('magenta_particle_wave') || angular.element('#'+strID).hasClass('blue_particle_wave')) {
-                            angular.element('#'+strID).css('left',left-5+'px');
-                        }
-                    }
-                
+                var id = parseInt(strID.split('_')[1]);
+                left = left + (30/2.2);
+                if((id%2 === 0) && (id !== 20) && (id !== 48) && (id !== 36) && (id !== 30) ) {
+                    angular.element(v).addClass('plane_wave').removeClass('white_particle_wave');
+                }
+                // angular.element('#'+strID).remove()
             });
 
           };
 
         thisRef.resetSim = function () {
             thisRef.resetUI();
-            
         };
     }]).directive('element',function(){
         var dir = {};

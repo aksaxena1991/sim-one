@@ -140,7 +140,9 @@ var app = angular.module('playerApp', ['ngSanitize']);
             }
 
           }
-        thisRef.resetUI = function () {
+        
+
+          thisRef.resetUI = function () {
             thisRef.timeInterval = 0.04
             thisRef.directionOfVibration = "";
             thisRef.directionOfPropagation = "";

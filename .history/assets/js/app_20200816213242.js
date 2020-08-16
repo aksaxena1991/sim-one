@@ -140,7 +140,9 @@ var app = angular.module('playerApp', ['ngSanitize']);
             }
 
           }
-        thisRef.resetUI = function () {
+        
+
+          thisRef.resetUI = function () {
             thisRef.timeInterval = 0.04
             thisRef.directionOfVibration = "";
             thisRef.directionOfPropagation = "";
@@ -150,7 +152,6 @@ var app = angular.module('playerApp', ['ngSanitize']);
             thisRef.chainOfParticle = false
             thisRef.animMode = 'fourparticles';
             angular.element('.vibrator').removeClass('vibrate');
-            angular.element('.startsim').html('Start')
             angular.element('.wave').remove();
             angular.element('.vibrationArea').children('element').append(`<div class="wave plane_wave" id="wave_1"></div>
             <div class="wave plane_wave" id="wave_2"></div>
