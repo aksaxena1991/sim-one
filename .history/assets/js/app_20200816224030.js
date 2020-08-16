@@ -50,7 +50,7 @@ var app = angular.module('playerApp', ['ngSanitize']);
             waves.each(function(i,v){
                 setTimeout(function(){
                     angular.element(v).css({
-                        animation: `waveMove_${i} 2s infinite`
+                        animation: `waveMove_${i} 3s infinite`
                     });
                 },i*1000);
             });

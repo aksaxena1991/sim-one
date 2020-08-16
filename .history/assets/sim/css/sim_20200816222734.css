@@ -404,7 +404,7 @@
   
 
   .vibrate {
-	animation: oscillate 3s infinite;
+	animation: oscillate 1s infinite;
 	/* position : relative */
 
   }
