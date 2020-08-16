@@ -17,7 +17,12 @@ var app = angular.module('playerApp', ['ngSanitize']);
         thisRef.currentC1Val = "r1";
         thisRef.currentC2Val = "r2";
         thisRef.runFlag = 1
+        var xBase = 90;
+        var unit = 50;
+        
         var width = angular.element('.vibrationArea').width();
+        var yAxis = Math.floor(width/4);
+        
         thisRef.oneWayArrowDresc = false;
         thisRef.bothWayArrowDresc = false;
         thisRef.fourparticle = true;
@@ -33,7 +38,6 @@ var app = angular.module('playerApp', ['ngSanitize']);
                 thisRef.runMotionWaves(e);
                 angular.element(e.target).html("Pause");
                 angular.element('.vibrator').addClass('vibrate');
-                // angular.element('.wave').addClass('wave-oscillation');
             }
             if (thisRef.bText == "Pause") {
               angular.element(e.target).html("Continue");
@@ -45,15 +49,17 @@ var app = angular.module('playerApp', ['ngSanitize']);
             }
           };
 
-          thisRef.drawMotionLines = function (waves) {
-              
-            waves.each(function(i,v){
-                setTimeout(function(){
-                    angular.element(v).css({
-                        animation: `waveMove_${i} 7s infinite`
-                    });
-                },i*1000);
-            });
+          thisRef.drawMotionLines = function (e) {
+              var waves = angular.element('.wave');
+              var wavelen = waves.length;
+              for(var i = parseInt(waves[0].style.left.replace('px','')),k =0; i < width, k < wavelen ; i += 10, k++){
+                  var xLeft = parseInt(waves[k].style.left.replace('px',''));
+                // console.log("added: "+xLeft+(-yAxis+k)/unit)
+                // console.log("subtracted: "+(xLeft-(-yAxis+k)/unit))
+                angular.element(waves[k]).animate({left:(xLeft+(yAxis+k)/unit)+"px"},(k+1)*1000).animate({left:(xLeft+(-yAxis+k)/unit)+"px"},(k+2)*1000).animate({left:xLeft+"px"},(k+3)*1000)
+                
+              }
+            
             
             
            
@@ -62,30 +68,14 @@ var app = angular.module('playerApp', ['ngSanitize']);
 
           thisRef.runMotionWaves = function (e) {
               if (thisRef.runFlag == 1) {
-                var waves = angular.element('.wave');
-                var wavelen = waves.length;
-                var style = '';
-                
-                
-                for(var i = parseInt(waves[0].style.left.replace('px','')),k =0; i < width, k < wavelen ; i += 10, k++){
-                    var xLeft = parseInt(waves[k].style.left.replace('px',''));
-                    console.log('sasa',Math.PI * 2*150 /100)
-                    style += `          @keyframes waveMove_${k} {
-                      
-                      0% {left: ${(xLeft-15)+"px;"}}
-                      50% {left: ${xLeft+"px;"}}
-                      100% {left: ${(xLeft+15)+"px;"}}
-                    }`;
-                    
-                  
-                }
-                angular.element('head').children('#style').remove();
-                angular.element('head').append("<style id='style'>"+style+"</style>");
-                thisRef.drawMotionLines(waves);
+                thisRef.drawMotionLines(e);
                 
             }
           }
 
+          thisRef.updateCounterInterval = function () {
+              
+          }
           thisRef.onChange = function(evt){
             var val = evt.target.value;
             var waves = angular.element('.wave');
@@ -101,6 +91,7 @@ var app = angular.module('playerApp', ['ngSanitize']);
                 thisRef.oneWayArrowDresc = false
                 thisRef.bothWayArrowDresc = false
                 angular.element('.wave').each(function(i,v){
+                
                     var strID = v.id;
                     var id = parseInt(strID.split('_')[1]);
                     left = left + (30/2.2);
@@ -108,8 +99,11 @@ var app = angular.module('playerApp', ['ngSanitize']);
                     if(i+1 === id) {
                         
                         angular.element('#'+strID).css('left',left+'px');
+                        
                     }
                     if(id%2 ===0) {
+                        
+                        
                         if(!angular.element('#'+strID).hasClass('red_particle_wave') && !angular.element('#'+strID).hasClass('green_particle_wave') && !angular.element('#'+strID).hasClass('magenta_particle_wave') && !angular.element('#'+strID).hasClass('blue_particle_wave')) {
                             angular.element('#'+strID).css('left',left+'px');
                             angular.element('#'+strID).addClass('plane_wave').removeClass('white_particle_wave');
@@ -118,7 +112,10 @@ var app = angular.module('playerApp', ['ngSanitize']);
                             angular.element('#'+strID).css('left',left-5+'px');
                         }
                     }
-                });
+                    
+                })
+                
+                
             }else {
                 thisRef.fourparticle = false
                 thisRef.chainOfParticle = true
@@ -136,8 +133,12 @@ var app = angular.module('playerApp', ['ngSanitize']);
                         angular.element(v).addClass('white_particle_wave').removeClass('plane_wave')
                         angular.element('#'+strID).css('left',left-5+'px');
                     }
-                });
-                
+                    
+                        
+                })
+                // angular.element(".ball").removeAttr("style");
+                // angular.element('.height-indicator').removeAttr("style");
+                // angular.element(".startsim").html("Start");
             }
 
           }
@@ -225,8 +226,7 @@ var app = angular.module('playerApp', ['ngSanitize']);
         <div class="wave plane_wave" id="wave_57"></div>
         <div class="wave plane_wave" id="wave_58"></div>
         <div class="wave plane_wave" id="wave_59"></div>
-        <div class="wave plane_wave" id="wave_60"></div>
-        `;
+        <div class="wave plane_wave" id="wave_60"></div>`;
         dir.compile = function(element, attributes){
             var left = 90;
             

@@ -17,7 +17,13 @@ var app = angular.module('playerApp', ['ngSanitize']);
         thisRef.currentC1Val = "r1";
         thisRef.currentC2Val = "r2";
         thisRef.runFlag = 1
+        
+        var xBase = 90;
+        var unit = 50;
+        
         var width = angular.element('.vibrationArea').width();
+        var yAxis = Math.floor(width/4);
+        
         thisRef.oneWayArrowDresc = false;
         thisRef.bothWayArrowDresc = false;
         thisRef.fourparticle = true;
@@ -45,15 +51,28 @@ var app = angular.module('playerApp', ['ngSanitize']);
             }
           };
 
-          thisRef.drawMotionLines = function (waves) {
-              
-            waves.each(function(i,v){
+          thisRef.drawMotionLines = function (e) {
+              var waves = angular.element('div.wave');
+              var wavelen = waves.length;
+              var style = '';
+              for(var i = parseInt(waves[0].style.left.replace('px','')),k =0; i < width, k < wavelen ; i += 10, k++){
+                  var xLeft = parseInt(waves[k].style.left.replace('px',''));
+                  style += `          @keyframes waveMove_${k} {
+                    0% {left: ${(xLeft-(20*Math.sin(1/2)))+"px;"}}
+                    50% {left: ${(xLeft)+"px;"}}
+                    100% {left: ${(xLeft+(20*Math.sin(1/2)))+"px;"}}
+                  }`;
                 setTimeout(function(){
-                    angular.element(v).css({
-                        animation: `waveMove_${i} 7s infinite`
+                    console.log(waves.eq(k),'saxena');
+                    angular.element(waves[k]).css({
+                        animation: `waveMove_${k} 2s infinite`
                     });
-                },i*1000);
-            });
+                },k*1000);
+                
+              }
+              angular.element('head').children('#style').remove();
+              angular.element('head').append("<style id='style'>"+style+"</style>");
+            
             
             
            
@@ -62,26 +81,7 @@ var app = angular.module('playerApp', ['ngSanitize']);
 
           thisRef.runMotionWaves = function (e) {
               if (thisRef.runFlag == 1) {
-                var waves = angular.element('.wave');
-                var wavelen = waves.length;
-                var style = '';
-                
-                
-                for(var i = parseInt(waves[0].style.left.replace('px','')),k =0; i < width, k < wavelen ; i += 10, k++){
-                    var xLeft = parseInt(waves[k].style.left.replace('px',''));
-                    console.log('sasa',Math.PI * 2*150 /100)
-                    style += `          @keyframes waveMove_${k} {
-                      
-                      0% {left: ${(xLeft-15)+"px;"}}
-                      50% {left: ${xLeft+"px;"}}
-                      100% {left: ${(xLeft+15)+"px;"}}
-                    }`;
-                    
-                  
-                }
-                angular.element('head').children('#style').remove();
-                angular.element('head').append("<style id='style'>"+style+"</style>");
-                thisRef.drawMotionLines(waves);
+                thisRef.drawMotionLines(e);
                 
             }
           }
@@ -225,8 +225,7 @@ var app = angular.module('playerApp', ['ngSanitize']);
         <div class="wave plane_wave" id="wave_57"></div>
         <div class="wave plane_wave" id="wave_58"></div>
         <div class="wave plane_wave" id="wave_59"></div>
-        <div class="wave plane_wave" id="wave_60"></div>
-        `;
+        <div class="wave plane_wave" id="wave_60"></div>`;
         dir.compile = function(element, attributes){
             var left = 90;
             

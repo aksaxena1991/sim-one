@@ -397,9 +397,9 @@
 	margin-left: 20px;
 }
 @keyframes oscillate {
-	0% {left: -10px;}
+	0% {left: -20px;}
 	50% {left: 0px;}
-	100% {left: -10px;}
+	100% {left: -20px;}
   }
   
 

@@ -17,7 +17,13 @@ var app = angular.module('playerApp', ['ngSanitize']);
         thisRef.currentC1Val = "r1";
         thisRef.currentC2Val = "r2";
         thisRef.runFlag = 1
+        
+        
+        var unit = 50;
+        
         var width = angular.element('.vibrationArea').width();
+        var yAxis = Math.floor(width/4);
+        
         thisRef.oneWayArrowDresc = false;
         thisRef.bothWayArrowDresc = false;
         thisRef.fourparticle = true;
@@ -225,8 +231,7 @@ var app = angular.module('playerApp', ['ngSanitize']);
         <div class="wave plane_wave" id="wave_57"></div>
         <div class="wave plane_wave" id="wave_58"></div>
         <div class="wave plane_wave" id="wave_59"></div>
-        <div class="wave plane_wave" id="wave_60"></div>
-        `;
+        <div class="wave plane_wave" id="wave_60"></div>`;
         dir.compile = function(element, attributes){
             var left = 90;
             
