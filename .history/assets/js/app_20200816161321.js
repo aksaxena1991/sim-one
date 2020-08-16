@@ -37,15 +37,12 @@ var app = angular.module('playerApp', ['ngSanitize']);
             if (thisRef.bText == "Start") {
                 thisRef.runMotionWaves(e);
                 angular.element(e.target).html("Pause");
-                angular.element('.vibrator').addClass('vibrate');
             }
             if (thisRef.bText == "Pause") {
               angular.element(e.target).html("Continue");
-              angular.element('.vibrator').removeClass('vibrate');
             }
             if (thisRef.bText == "Continue") {
               angular.element(e.target).html("Pause");
-              angular.element('.vibrator').addClass('vibrate');
             }
           };
 
@@ -80,7 +77,7 @@ var app = angular.module('playerApp', ['ngSanitize']);
             var val = evt.target.value;
             var waves = angular.element('.wave');
             var left = 90;
-            
+            left = left + (30/2.2);
             
             if(val === 'fourparticles'){
                 
@@ -90,32 +87,17 @@ var app = angular.module('playerApp', ['ngSanitize']);
                 thisRef.directionOfPropagation = "";
                 thisRef.oneWayArrowDresc = false
                 thisRef.bothWayArrowDresc = false
-                
-                angular.element('.wave').each(function(i,v){
-                
+                // thisRef.resetUI();
+                waves.each(function(i,v){
                     var strID = v.id;
                     var id = parseInt(strID.split('_')[1]);
-                    left = left + (30/2.2);
-                    
-                    if(i+1 === id) {
-                        
+                    if(angular.element(v).hasClass('white_particle_wave')){
+                        angular.element(v).removeClass('white_particle_wave').addClass('plane_wave');
                         angular.element('#'+strID).css('left',left+'px');
-                        
                     }
-                    if(id%2 ===0) {
+                    console.log(id,'anubhva')
                         
-                        
-                        if(!angular.element('#'+strID).hasClass('red_particle_wave') && !angular.element('#'+strID).hasClass('green_particle_wave') && !angular.element('#'+strID).hasClass('magenta_particle_wave') && !angular.element('#'+strID).hasClass('blue_particle_wave')) {
-                            angular.element('#'+strID).css('left',left+'px');
-                            angular.element('#'+strID).addClass('plane_wave').removeClass('white_particle_wave');
-                        }
-                        if(angular.element('#'+strID).hasClass('red_particle_wave') || angular.element('#'+strID).hasClass('green_particle_wave') || angular.element('#'+strID).hasClass('magenta_particle_wave') || angular.element('#'+strID).hasClass('blue_particle_wave')) {
-                            angular.element('#'+strID).css('left',left-5+'px');
-                        }
-                    }
-                    
                 })
-                
                 
             }else {
                 thisRef.fourparticle = false
@@ -123,24 +105,7 @@ var app = angular.module('playerApp', ['ngSanitize']);
                 thisRef.directionOfVibration = "";
                 thisRef.directionOfPropagation = "";
                 thisRef.oneWayArrowDresc = false
-                thisRef.bothWayArrowDresc = false;
-                
-                waves.each(function(i,v){
-                    var strID = v.id;
-                    var id = parseInt(strID.split('_')[1]);
-                    // if(angular.element(v).hasClass('white_particle_wave')){
-                    //     angular.element(v).removeClass('white_particle_wave').addClass('plane_wave');
-                    //     angular.element('#'+strID).css('left',left+'px');
-                    // }
-                    left = left + (30/2.2);
-                    if((id%2 === 0) && (id !== 20) && (id !== 48) && (id !== 36) && (id !== 30) ) {
-                        
-                        angular.element(v).addClass('white_particle_wave').removeClass('plane_wave')
-                        angular.element('#'+strID).css('left',left-5+'px');
-                    }
-                    
-                        
-                })
+                thisRef.bothWayArrowDresc = false
                 angular.element(".ball").removeAttr("style");
                 angular.element('.height-indicator').removeAttr("style");
                 angular.element(".startsim").html("Start");
@@ -280,11 +245,8 @@ var app = angular.module('playerApp', ['ngSanitize']);
                         
                         
                         if(element.children('#'+strID).hasClass('red_particle_wave') && element.children('#'+strID).hasClass('green_particle_wave') && element.children('#'+strID).hasClass('magenta_particle_wave') && element.children('#'+strID).hasClass('blue_particle_wave')) {
-                            element.children('#'+strID).css('left',left+'px');
-                            element.children('#'+strID).removeClass('plane_wave').addClass('white_particle_wave')
-                        }
-                        if(element.children('#'+strID).hasClass('red_particle_wave') || element.children('#'+strID).hasClass('green_particle_wave') || element.children('#'+strID).hasClass('magenta_particle_wave') || element.children('#'+strID).hasClass('blue_particle_wave')) {
                             element.children('#'+strID).css('left',left-5+'px');
+                            element.children('#'+strID).removeClass('plane_wave').addClass('white_particle_wave')
                         }
                     }
                     

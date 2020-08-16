@@ -397,12 +397,11 @@
 	margin-left: 20px;
 }
 @keyframes oscillate {
-	0% {left: -20px;}
-	50% {left: 0px;}
-	100% {left: -20px;}
+	0% {left: 0px;}
+	50% {left: 20px;}
+	100% {left: 0px;}
   }
   .vibrate {
-	animation: oscillate 5s infinite;
-	/* position : relative */
-
+	animation:'oscillate 4s infinite';
+	position :'relative'
   }

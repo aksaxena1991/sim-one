@@ -90,7 +90,7 @@ var app = angular.module('playerApp', ['ngSanitize']);
                 thisRef.directionOfPropagation = "";
                 thisRef.oneWayArrowDresc = false
                 thisRef.bothWayArrowDresc = false
-                
+                // thisRef.resetUI();
                 angular.element('.wave').each(function(i,v){
                 
                     var strID = v.id;
@@ -99,18 +99,18 @@ var app = angular.module('playerApp', ['ngSanitize']);
                     
                     if(i+1 === id) {
                         
-                        angular.element('#'+strID).css('left',left+'px');
+                        element.children('#'+strID).css('left',left+'px');
                         
                     }
                     if(id%2 ===0) {
                         
                         
-                        if(!angular.element('#'+strID).hasClass('red_particle_wave') && !angular.element('#'+strID).hasClass('green_particle_wave') && !angular.element('#'+strID).hasClass('magenta_particle_wave') && !angular.element('#'+strID).hasClass('blue_particle_wave')) {
-                            angular.element('#'+strID).css('left',left+'px');
-                            angular.element('#'+strID).addClass('plane_wave').removeClass('white_particle_wave');
+                        if(element.children('#'+strID).hasClass('red_particle_wave') && element.children('#'+strID).hasClass('green_particle_wave') && element.children('#'+strID).hasClass('magenta_particle_wave') && element.children('#'+strID).hasClass('blue_particle_wave')) {
+                            element.children('#'+strID).css('left',left+'px');
+                            element.children('#'+strID).removeClass('plane_wave').addClass('white_particle_wave')
                         }
-                        if(angular.element('#'+strID).hasClass('red_particle_wave') || angular.element('#'+strID).hasClass('green_particle_wave') || angular.element('#'+strID).hasClass('magenta_particle_wave') || angular.element('#'+strID).hasClass('blue_particle_wave')) {
-                            angular.element('#'+strID).css('left',left-5+'px');
+                        if(element.children('#'+strID).hasClass('red_particle_wave') || element.children('#'+strID).hasClass('green_particle_wave') || element.children('#'+strID).hasClass('magenta_particle_wave') || element.children('#'+strID).hasClass('blue_particle_wave')) {
+                            element.children('#'+strID).css('left',left-5+'px');
                         }
                     }
                     

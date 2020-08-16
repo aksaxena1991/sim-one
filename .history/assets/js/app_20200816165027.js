@@ -90,7 +90,7 @@ var app = angular.module('playerApp', ['ngSanitize']);
                 thisRef.directionOfPropagation = "";
                 thisRef.oneWayArrowDresc = false
                 thisRef.bothWayArrowDresc = false
-                
+                // thisRef.resetUI();
                 angular.element('.wave').each(function(i,v){
                 
                     var strID = v.id;
@@ -105,13 +105,11 @@ var app = angular.module('playerApp', ['ngSanitize']);
                     if(id%2 ===0) {
                         
                         
-                        if(!angular.element('#'+strID).hasClass('red_particle_wave') && !angular.element('#'+strID).hasClass('green_particle_wave') && !angular.element('#'+strID).hasClass('magenta_particle_wave') && !angular.element('#'+strID).hasClass('blue_particle_wave')) {
+                        if(angular.element('#'+strID).hasClass('red_particle_wave') && angular.element('#'+strID).hasClass('green_particle_wave') && angular.element('#'+strID).hasClass('magenta_particle_wave') && angular.element('#'+strID).hasClass('blue_particle_wave')) {
                             angular.element('#'+strID).css('left',left+'px');
-                            angular.element('#'+strID).addClass('plane_wave').removeClass('white_particle_wave');
+                            angular.element('#'+strID).addClass('plane_wave')
                         }
-                        if(angular.element('#'+strID).hasClass('red_particle_wave') || angular.element('#'+strID).hasClass('green_particle_wave') || angular.element('#'+strID).hasClass('magenta_particle_wave') || angular.element('#'+strID).hasClass('blue_particle_wave')) {
-                            angular.element('#'+strID).css('left',left-5+'px');
-                        }
+                        
                     }
                     
                 })

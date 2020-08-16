@@ -398,11 +398,10 @@
 }
 @keyframes oscillate {
 	0% {left: -20px;}
-	50% {left: 0px;}
+	50% {left: 20px;}
 	100% {left: -20px;}
   }
   .vibrate {
-	animation: oscillate 5s infinite;
-	/* position : relative */
-
+	animation: oscillate 4s infinite;
+	position : relative
   }

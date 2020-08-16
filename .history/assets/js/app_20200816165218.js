@@ -90,7 +90,7 @@ var app = angular.module('playerApp', ['ngSanitize']);
                 thisRef.directionOfPropagation = "";
                 thisRef.oneWayArrowDresc = false
                 thisRef.bothWayArrowDresc = false
-                
+                // thisRef.resetUI();
                 angular.element('.wave').each(function(i,v){
                 
                     var strID = v.id;
