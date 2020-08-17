@@ -15,6 +15,8 @@ var app = angular.module('playerApp', ['ngSanitize']);
         thisRef.resetActBool = true;
         thisRef.timeInterval = 0.04 //  in second
         thisRef.runFlag = 1
+        thisRef.amplitude = 10;
+        thisRef.wavelength = 120;
         var width = angular.element('.vibrationArea').width();
         thisRef.oneWayArrowDresc = false;
         thisRef.bothWayArrowDresc = false;
@@ -183,7 +185,7 @@ var app = angular.module('playerApp', ['ngSanitize']);
                     style += `          @keyframes waveMove_${k} {
                       
                       0% {left: ${(xLeft)+"px;"}}
-                      50% {left: ${xLeft-(((Math.PI * 1))+0.5)+"px;"}}
+                      50% {left: ${xLeft-(thisRef.amplitude* Math.sin(2*Math.PI*i/thisRef.wavelength))+"px;"}}
                     
                       
                       100% {left: ${(xLeft)+"px;"}}
