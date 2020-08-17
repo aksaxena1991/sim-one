@@ -22,7 +22,7 @@ var app = angular.module('playerApp', ['ngSanitize']);
         thisRef.showLabels = false;
         thisRef.chainOfParticle = false;
         thisRef.pause = function(){
-            angular.element('.vibrator').removeClass('vibrate');
+            angular.element('.vibrator_press').removeClass('vibrate');
             // angular.element('.startsim').html('Start')
             
             angular.element('.wave').remove();
@@ -136,21 +136,21 @@ var app = angular.module('playerApp', ['ngSanitize']);
             if (thisRef.bText == "Start") {
                 thisRef.runMotionWaves(e);
                 angular.element(e.target).html("Pause");
-                angular.element('.vibrator').addClass('vibrate');
+                angular.element('.vibrator_press').addClass('vibrate');
                 thisRef.showLabels = true;
                 // angular.element('.wave').addClass('wave-oscillation');
 
             }
             if (thisRef.bText == "Pause") {
               angular.element(e.target).html("Continue");
-              angular.element('.vibrator').removeClass('vibrate');
+              angular.element('.vibrator_press').removeClass('vibrate');
               thisRef.showLabels = false;
               thisRef.pause();
               
             }
             if (thisRef.bText == "Continue") {
               angular.element(e.target).html("Pause");
-              angular.element('.vibrator').addClass('vibrate');
+              angular.element('.vibrator_press').addClass('vibrate');
               thisRef.drawMotionLines(angular.element('.wave'));
               thisRef.showLabels = true;
             }
@@ -263,7 +263,7 @@ var app = angular.module('playerApp', ['ngSanitize']);
             thisRef.chainOfParticle = false;
             thisRef.showLabels = false;
             thisRef.animMode = 'fourparticles';
-            angular.element('.vibrator').removeClass('vibrate');
+            angular.element('.vibrator_press').removeClass('vibrate');
             angular.element('.startsim').html('Start')
             angular.element('.wave').remove();
             angular.element('.vibrationArea').children('element').append(`<div class="wave plane_wave" id="wave_1"></div>
@@ -358,7 +358,8 @@ var app = angular.module('playerApp', ['ngSanitize']);
         var dir = {};
         dir.restrict = 'E';
         dir.template= `
-        <div class="vibrator"></div>
+        <div class="vibrator_bar"></div>
+        <div class="vibrator_press"></div>
         <div class="wave plane_wave" id="wave_1"></div>
         <div class="wave plane_wave" id="wave_2"></div>
             <div class="wave plane_wave" id="wave_3"></div>
