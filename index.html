@@ -46,7 +46,7 @@
 				<div class="stageArea">
 					<div class="experimentArea">
 						<div class="directionText">
-							<div class="Text1 ">
+							<div class="Text1 " ng-if="showLabels">
 								<span>direction of vibration of the particles</span>
 								<span class="both-side-arrow-drection"></span>
 							</div>
@@ -55,8 +55,8 @@
 							<div class="vibrationArea">
 								<element></element>
 								<span class="vibrationText">vibrator</span>
-								<span class="Text2">direction of travel of the wave</span>
-								<span class="one-arrow-drection"></span>
+								<span class="Text2" ng-if="showLabels">direction of travel of the wave</span>
+								<span class="one-arrow-drection" ng-if="showLabels"></span>
 
 							</div>
 
