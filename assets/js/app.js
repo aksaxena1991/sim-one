@@ -146,7 +146,7 @@ var app = angular.module('playerApp', ['ngSanitize']);
             if (thisRef.bText == "Pause") {
               angular.element(e.target).html("Continue");
               angular.element('.vibrator_press').removeClass('vibrate');
-              thisRef.showLabels = false;
+              thisRef.showLabels = true;
               thisRef.pause();
               
             }
