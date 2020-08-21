@@ -13,6 +13,7 @@ var app = angular.module('playerApp', ['ngSanitize']);
         var thisRef = $scope;
         thisRef.animMode = 'fourparticles';
         thisRef.resetActBool = true;
+        thisRef.inBtwSwitch = false;
         thisRef.timeInterval = 0.04 //  in second
         thisRef.runFlag = 1
         thisRef.timeout;
@@ -81,7 +82,7 @@ var app = angular.module('playerApp', ['ngSanitize']);
                 var wavelen = waves.length;
                 var style = '';
                 
-                
+                thisRef.inBtwSwitch = true;
                 for(var i = parseInt(waves[0].style.left.replace('px','')),k =0; i < width, k < wavelen ; i += 10, k++){
                     var xLeft = parseInt(waves[k].style.left.replace('px',''));
                     style += `          @keyframes waveMove_${k} {
@@ -101,12 +102,72 @@ var app = angular.module('playerApp', ['ngSanitize']);
                 
             }
           }
-
+          thisRef.switchInBwt = function(val){
+            var waves = angular.element('.wave');
+            var left = 90;
+            
+            if(val === 'fourparticles'){
+                waves.removeAttr('style');
+                
+                thisRef.fourparticle = true
+                thisRef.chainOfParticle = false
+                thisRef.directionOfVibration = "";
+                thisRef.directionOfPropagation = "";
+                thisRef.oneWayArrowDresc = false;
+                thisRef.bothWayArrowDresc = false;
+                angular.element('.vibrator_press').removeClass('vibrate');
+                thisRef.showLabels = false;
+                angular.element('.startsim').html('Start');
+                angular.element('.wave').each(function(i,v){
+                    var strID = v.id;
+                    var id = parseInt(strID.split('_')[1]);
+                    left = left + (30/2.2);
+                    
+                    if(i+1 === id) {
+                        
+                        angular.element('#'+strID).css('left',left+'px');
+                    }
+                    if(id%2 ===0) {
+                        if(!angular.element('#'+strID).hasClass('red_particle_wave') && !angular.element('#'+strID).hasClass('green_particle_wave') && !angular.element('#'+strID).hasClass('magenta_particle_wave') && !angular.element('#'+strID).hasClass('blue_particle_wave')) {
+                            angular.element('#'+strID).css('left',left+'px');
+                            angular.element('#'+strID).addClass('plane_wave').removeClass('white_particle_wave');
+                        }
+                        if(angular.element('#'+strID).hasClass('red_particle_wave') || angular.element('#'+strID).hasClass('green_particle_wave') || angular.element('#'+strID).hasClass('magenta_particle_wave') || angular.element('#'+strID).hasClass('blue_particle_wave')) {
+                            angular.element('#'+strID).css('left',left+'px');
+                        }
+                    }
+                });
+            }else {
+                
+                thisRef.fourparticle = false
+                thisRef.chainOfParticle = true
+                thisRef.directionOfVibration = "";
+                thisRef.directionOfPropagation = "";
+                thisRef.oneWayArrowDresc = false
+                thisRef.bothWayArrowDresc = false;
+                angular.element('.vibrator_press').removeClass('vibrate');
+                thisRef.showLabels = false;
+                angular.element('.startsim').html('Start');
+                waves.each(function(i,v){
+                    var strID = v.id;
+                    var id = parseInt(strID.split('_')[1]);
+                    left = left + (30/2.2);
+                    // console.log('vi:', )
+                    v.style.animation = '';
+                    if((id%2 === 0) && (id !== 20) && (id !== 48) && (id !== 36) && (id !== 30) ) {
+                        
+                        angular.element(v).addClass('white_particle_wave').removeClass('plane_wave')
+                        angular.element('#'+strID).css('left',left+'px');
+                    }
+                    
+                });
+                
+            }
+          }
           thisRef.onChange = function(evt){
             var val = evt.target.value;
             var waves = angular.element('.wave');
             var left = 90;
-            
             
             if(val === 'fourparticles'){
                 
@@ -131,10 +192,13 @@ var app = angular.module('playerApp', ['ngSanitize']);
                             angular.element('#'+strID).addClass('plane_wave').removeClass('white_particle_wave');
                         }
                         if(angular.element('#'+strID).hasClass('red_particle_wave') || angular.element('#'+strID).hasClass('green_particle_wave') || angular.element('#'+strID).hasClass('magenta_particle_wave') || angular.element('#'+strID).hasClass('blue_particle_wave')) {
-                            angular.element('#'+strID).css('left',left-5+'px');
+                            angular.element('#'+strID).css('left',left+'px');
                         }
                     }
                 });
+                if(thisRef.inBtwSwitch) {
+                    thisRef.switchInBwt('fourparticles');
+                }
             }else {
                 thisRef.fourparticle = false
                 thisRef.chainOfParticle = true
@@ -147,13 +211,20 @@ var app = angular.module('playerApp', ['ngSanitize']);
                     var strID = v.id;
                     var id = parseInt(strID.split('_')[1]);
                     left = left + (30/2.2);
+                    
                     if((id%2 === 0) && (id !== 20) && (id !== 48) && (id !== 36) && (id !== 30) ) {
                         
                         angular.element(v).addClass('white_particle_wave').removeClass('plane_wave')
-                        angular.element('#'+strID).css('left',left-5+'px');
+                        angular.element('#'+strID).css('left',left+'px');
                     }
+                    // if() {
+                        // angular.element('#'+strID).css('left',left-5+'px');
+                    // }
                 });
                 
+                if(thisRef.inBtwSwitch) {
+                    thisRef.switchInBwt('chainOfParticles');
+                }
             }
 
           }
@@ -166,6 +237,7 @@ var app = angular.module('playerApp', ['ngSanitize']);
             thisRef.fourparticle = true
             thisRef.chainOfParticle = false;
             thisRef.showLabels = false;
+            thisRef.inBtwSwitch = false;
             thisRef.animMode = 'fourparticles';
             angular.element('.vibrator_press').removeClass('vibrate');
             angular.element('.startsim').html('Start')
@@ -246,7 +318,7 @@ var app = angular.module('playerApp', ['ngSanitize']);
                             angular.element('#'+strID).removeClass('plane_wave').addClass('white_particle_wave')
                         }
                         if(angular.element('#'+strID).hasClass('red_particle_wave') || angular.element('#'+strID).hasClass('green_particle_wave') || angular.element('#'+strID).hasClass('magenta_particle_wave') || angular.element('#'+strID).hasClass('blue_particle_wave')) {
-                            angular.element('#'+strID).css('left',left-5+'px');
+                            angular.element('#'+strID).css('left',left+'px');
                         }
                     }
                 
@@ -349,7 +421,7 @@ var app = angular.module('playerApp', ['ngSanitize']);
                             element.children('#'+strID).removeClass('plane_wave').addClass('white_particle_wave')
                         }
                         if(element.children('#'+strID).hasClass('red_particle_wave') || element.children('#'+strID).hasClass('green_particle_wave') || element.children('#'+strID).hasClass('magenta_particle_wave') || element.children('#'+strID).hasClass('blue_particle_wave')) {
-                            element.children('#'+strID).css('left',left-5+'px');
+                            element.children('#'+strID).css('left',left+'px');
                         }
                     }
                     
