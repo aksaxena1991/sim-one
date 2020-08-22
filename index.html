@@ -1,0 +1,140 @@
+<!DOCTYPE HTML>
+<html ng-app="playerApp">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=1024,initial-scale=1.0,maximum-scale=1.0" />
+
+	<title>Adding pulses</title>
+
+	<link rel="stylesheet" type="text/css" href="assets/css/libs/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="assets/css/libs/bootstrap-slider.min.css" />
+
+	<link rel="stylesheet" type="text/css" href="assets/css/main.css" />
+
+	<link rel="stylesheet" type="text/css" href="assets/sim/css/sim.css" />
+</head>
+
+<body>
+
+	<div id="wrapper" ng-controller="playerCtrl" ng-mouseup="onMouseUp();">
+		<header>
+			<div class="titleBar">Adding pulses</div>
+			<div class="instructionBar">
+				<strong>Instruction:</strong> Press &#60;Start&#62; to observe how two pulses add up when they meet. Change the shape and the amplitude of the pulses and repeat. How do pulses add up when they meet?
+			</div>
+			<div class="selectionBar_top">
+				<div class="formFields">
+					<label>
+						<div class="two-checkbox">
+							<label><b> Pulse travelling to the right</b></label>
+							<label id="InitialHeightCont" class="massDropdown">
+								<span class="shap_marR">Shape</span>
+								<div id="InitialHeight" class="dropDown dropDownp1 ng-binding" ng-init=" appliedInitialValP1 = 'Wavy (up)'">{{appliedInitialValP1}}
+									<ul class="">
+										<li ng-click="InitialChangeP1('Wavy (up)');">Wavy (up)</li>
+										<li ng-click="InitialChangeP1('Wavy (down)');">Wavy (down)</li>
+										<li ng-click="InitialChangeP1('Square (up)');">Square (up)</li>
+										<li ng-click="InitialChangeP1('Square (down)');">Square (down)</li>
+									</ul>
+								</div>
+							</label>
+							<label id="ImpactOptionCont" class="massDropdown">
+								<span>Amplitude</span>
+								<div id="ImpactOption" class="dropDown dropDownp1 ng-binding" ng-init=" appliedInitialValP2 = '2 units'">{{appliedInitialValP2}}
+									<ul class="">
+										<li ng-click="InitialChangeP2('1 unit');">1 unit</li>
+										<li ng-click="InitialChangeP2('2 units');">2 units</li>
+										<li ng-click="InitialChangeP2('3 units');">3 units</li>
+									</ul>
+								</div>
+							</label>
+						</div>
+					</label>
+
+					<label>
+						<div>
+							<span id="DvStartSim" class="actBtns  rounded green" ng-class="" ng-click="StartSimulation()">Start</span>
+							<span class="actBtns rounded red" ng-class="" ng-click="ResetSimulation()">Reset</span>
+						</div>
+						
+						<div class="two-checkbox">
+							<input type="checkbox" name="show-img" id="c1" /><label
+								class="input_checkbox no-margin margin-top-5" for="c1">Auto-pulse when pulses meet</label>
+						</div>
+					</label>
+
+					<!-- <span class="middle-btns">
+						<div>
+							<span id="DvStartSim" class="actBtns  rounded green" ng-class="" ng-click="StartSimulation()">Start</span>
+							<span class="actBtns rounded red" ng-class="" ng-click="ResetSimulation()">Reset</span>
+						</div>
+							<div class="two-checkbox">
+								<input type="checkbox" name="show-img" id="c1" /><label
+									class="input_checkbox no-margin margin-top-5" for="c1">Auto-pulse when pulses meet</label>
+							</div>
+						</label>
+					</span> -->
+
+					<label class="right-dropdown-list">
+						<div class="two-checkbox">
+							<label><b> Pulse travelling to the left</b></label>
+							<label id="InitialHeightCont1" class="massDropdown">
+								<span>Shape &nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<div id="InitialHeight2" class="dropDown1 dropDownp1 ng-binding" ng-init=" appliedInitialValP3 = 'Wavy (up)'">{{appliedInitialValP3}}
+									<ul class="">
+										<li ng-click="InitialChangeP3('Wavy (up)');">Wavy (up)</li>
+										<li ng-click="InitialChangeP3('Wavy (down)');">Wavy (down)</li>
+										<li ng-click="InitialChangeP3('Square (up)');">Square (up)</li>
+										<li ng-click="InitialChangeP3('Square (down)');">Square (down)</li>
+									</ul>
+								</div>
+							</label>
+							<label id="ImpactOptionCont1" class="massDropdown">
+								<span>Amplitude</span>
+								<div id="ImpactOption2" class="dropDown1 dropDownp1 ng-binding" ng-init=" appliedInitialValP4 = '2 units'">{{appliedInitialValP4}}
+									<ul class="">
+										<li ng-click="InitialChangeP4('1 unit');">1 unit</li>
+										<li ng-click="InitialChangeP4('2 units');">2 units</li>
+										<li ng-click="InitialChangeP4('3 units');">3 units</li>
+									</ul>
+								</div>
+							</label>
+						</div>
+					</label>
+				</div>
+			</div>
+		</header>
+		<section class="middleSection">
+			<!-- Mid Right Start Here -->
+			<div class="midRight">
+				<!-- Stage Area Start Here -->
+				<div class="stageArea">
+					<div class="experimentArea">
+						<!-- Diffraction  section-->	
+						<div class="pulse-section">
+							<div class="displayArea">
+
+							</div>
+						</div>	
+					</div>
+					
+					<div class="imprint"></div><!-- Oxford Logo -->
+				</div>				
+				</div>
+				<!-- Stage Area Ends Here -->
+			</div>
+			<!-- mid Right Ends Here -->
+		</section>
+		
+	</div>
+
+	<script type="text/javascript" src="assets/js/libs/jquery.min.js"></script>
+	<script type="text/javascript" src="assets/js/libs/bootstrap-slider.min.js"></script>
+	<script type="text/javascript" src="assets/js/jq_main.js"></script>
+	<script type="text/javascript" src="assets/js/ng/angular.min.js"></script>
+	<script type="text/javascript" src="assets/js/ng/angular-sanitize.min.js"></script>
+	<script type="text/javascript" src="assets/js/app.js"></script>
+</body>
+
+</html>

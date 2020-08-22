@@ -1,0 +1,713 @@
+.middleSection {
+	background-image: none !important;
+}
+
+#InitialHeight{
+	width: 165px;
+}
+
+#ImpactOption{
+	width: 165px;
+}
+.midRight {
+	margin-left: 0px;
+}
+
+.stageArea {
+	/* padding: 10px;
+	padding: 15px 20px -2px 20px; */
+}
+
+.fullWidthMessage {
+	position: relative;
+	text-align: left;
+
+}
+
+.removeMarg {
+	margin: 0px 0px 10px 0px !important;
+}
+
+.experimentArea {
+	position: relative;
+	margin: 0 auto;
+	/* width: 1024px;
+	height: 502px; */
+	padding: 15px;
+	background: #f4f4f4;
+}
+.table-point{
+	float: right;
+	width: 400px;
+	/* background: antiquewhite; */
+	height: 500px;
+	padding: 34px;
+	/* border: 1px solid; */
+	background: white;
+}
+
+/* .motion-sensor {
+	width: 150px;
+    position: absolute;
+    line-height: 20px;
+    left: 31px;
+    margin-top: 0px;
+} */
+
+div#DvTrolleyMsg{
+	width: 150px;
+    position: absolute;
+    line-height: 20px;    
+    /*color: #ff0000;   */
+}
+.ClsTrolleyMsg0{margin-top: 0px; left: 43px;}
+.ClsTrolleyMsg1{margin-top: 20px; left: 225px;}
+.ClsTrolleyMsg2{margin-top: 40px; left: 395px;}
+
+.trolly-force{margin-top: 40px;}
+
+.runway-section {
+	position: relative;
+	left: 0;
+	width: 994px;
+	height: 206px;
+	overflow: hidden;
+	margin-bottom: 25px;
+}
+
+.runway {
+	width: 980px;
+	height: 134px;
+	/*background-image: url('../img/2.png');*/
+	background-repeat: no-repeat;
+	position: absolute;
+	background-size: cover;
+	left: 0px;
+	top: 58px;
+	transform: rotate(1deg);
+}
+
+div#DvRunway{
+	width:964px; height:59px; position: absolute; top:35px; left: 17px; background-image: url('../img/track.png'); /*background: rgba(0,0,0,0.5);*/
+	transform: rotate(5deg); -moz-transform: rotate(5deg); -ms-transform: rotate(5deg); -webkit-transform: rotate(5deg); -o-transform: rotate(5deg);
+}
+
+.ClsTrack0{background-position: 0px 0px;}
+.ClsTrack1{background-position: -964px 0px;}
+.ClsTrack2{background-position: -1928px 0px;}
+
+div#DvTCover{width:954px; height:59px; position: absolute; top:0px; left: 0px; overflow: hidden;}
+
+div#DvTrolley{width:194px; height:59px; position: absolute; top:-3px; left: 180px; background-image: url('../img/trolley.png');}
+.ClsTrolley0{background-position: 0px 0px;}
+.ClsTrolley1{background-position: -194px 0px;}
+.ClsTrolley2{background-position: -388px 0px;}
+.ClsTrolley3{background-position: -582px 0px;}
+
+div#DvTrolleyMsgEnd{
+	width: 150px; position: absolute; line-height: 20px; top:-25px; padding-left:5px;
+transform: rotate(-5deg); -moz-transform: rotate(-5deg); -ms-transform: rotate(-5deg); -webkit-transform: rotate(-5deg); -o-transform: rotate(-5deg);color: #ff0000;
+}
+
+.carContainer {
+	position: absolute;
+}
+
+
+.car {
+	position: absolute;
+	width: 188px;
+	height: 81px;
+	background-repeat: no-repeat;
+}
+
+.clickArea {
+	width: 82px;
+	/*height: 65px;*/
+	height: 58px;
+	position: absolute;
+	/*right: 0;*/
+	right: 28px;
+	cursor: pointer;
+}
+
+.motionLines {
+	border: none;
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+	height: 15px;
+}
+
+.motionDot {
+	height: 4px;
+	width: 4px;
+	background-color: #1e1e1e;
+	border-radius: 50%;
+	display: inline-block;
+	position: absolute;
+	/* margin-left: 2.7px;*/
+}
+
+.message {
+	/*text-align: center;*/
+	color: #f00;
+}
+
+.counters {
+	text-align: center;
+	padding: 5px 0px;
+}
+
+.counterLabels {
+	display: inline-block;
+	width: 220px;
+	color: #3495d8;
+}
+
+
+.graph {
+	position: relative;
+	width: 94%;
+	height: 212px;
+}
+
+.graphImg {
+	position: absolute;
+	top: 2px;
+	left: 15px;
+	width: 100%;
+	height: 100%;
+	background-image: url("../img/graph.png");
+	background-repeat: no-repeat;
+}
+
+.drawImg {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 562px;
+	height: 100%;
+	z-index: 1;
+}
+
+.gridLines {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	background-image:
+		linear-gradient(#D4D4D4 2px, transparent 2px),
+		linear-gradient(90deg, #D4D4D4 2px, transparent 2px),
+		linear-gradient(rgba(212, 212, 212, 0.7) 1px, transparent 1px),
+		linear-gradient(90deg, rgba(212, 212, 212, 0.7) 1px, transparent 1px);
+	background-size: 30px 30px, 30px 30px, 6px 6px, 6px 6px;
+}
+
+.gridLabel {
+	font-size: 16px;
+	position: absolute;
+}
+
+
+.gridLabel.velocity {
+	top: 77px;
+	left: -43px;
+	transform: rotate(270deg);
+}
+
+.gridLabel.time {
+	left: 189px;
+}
+
+.axisLabel {
+	position: absolute;
+	font-size: 16px;
+}
+
+.axisLabel.y_axis {
+	top: 0px;
+	left: 0px;
+	width: 38px;
+	height: 100%;
+}
+
+.axisLabel.y_axis>div {
+	position: absolute;
+	right: 17px;
+}
+
+.al_100 {
+	top: 216px;
+}
+
+.al_200 {
+	top: 126px;
+}
+
+.axisLabel.x_axis {
+	bottom: 1px;
+	left: 0px;
+	width: 100%;
+	height: 23px;
+}
+
+.axisLabel.x_axis>div {
+	position: absolute;
+	display: inline-block;
+}
+
+.al_4 {
+	top: 111px;
+}
+
+.al_8 {
+	top: 50px;
+}
+
+.al_0 {
+	left: 27px;
+	/*top: -6px;*/
+}
+
+.al_5 {
+	left: 87px;
+}
+
+.al_10 {
+	left: 146px;
+}
+
+.al_15 {
+	left: 206px;
+}
+
+.al_20 {
+	left: 266px;
+}
+
+.al_25 {
+	left: 326px;
+}
+
+.al_30 {
+	left: 386px;
+}
+
+canvas {
+	position: absolute;
+	/*left: 31px;
+	top: 1px;*/
+}
+
+/* #graphLine1 {left: 31px; top: 1px;}
+#graphLine2 {left: 31px; top: 1px;}
+#graphLine3 {left: 31px; top: 1px;} */
+
+#graphLine1 {left: 30px; top: 2px;}
+#graphLine2 {left: 30px; top: 2px;}
+#graphLine3 {left: 30px; top: 2px;}
+
+#plotGraphLine, #plotPointGraphLine {
+	left: 32px;
+	top: 0px;
+
+}
+
+
+.graph-section {
+	position: relative;
+	width: 482px;
+	margin: 0 auto;
+	height: auto;
+	padding-top: 38px;
+}
+
+.graphCaption {
+	text-align: center;
+	font-family: 'Istok_B';
+	padding: 10px 0px 5px 0px;
+	background-color: #376092;
+	color: #fff;
+	width: 94%;
+	position: absolute;
+	top: 0;
+}
+
+
+.numbers {
+	text-align: right !important;
+	padding-right: 10px;
+}
+
+.Plot-graph-btn {
+	position: absolute;
+	right: 245px;
+	bottom: 65px;
+}
+
+.readings {
+	width: 138px;
+	position: absolute;
+	top: 48px;
+	right: 0;
+	color: #000;
+	font-size: 15px;
+	line-height: 18px;
+}
+.readings table tr td {
+	padding-bottom: 2px;
+}
+
+.fraction,
+.top,
+.bottom {
+	/*padding: 0 5px;*/
+	margin-left: 6px;
+}
+
+.fraction {
+	display: inline-block;
+	text-align: center;
+	width: max-content;
+}
+
+.bottom {
+	border-top: 1px solid #000;
+	display: block;
+	width: max-content;
+	/*width:19px;*/
+}
+
+span.ClsDisplayInline {
+	display: inline-block;
+}
+
+span.ClsDisplayInlineFraction {
+	display: inline-block;
+	vertical-align: middle;
+	margin-left: -1px;
+	margin-top: -3px;
+}
+
+
+
+div[class^="gAxis"] {
+	/*font-weight: bold;*/
+}
+
+.gAxisT,
+.gAxisV {
+	color: #00B050;
+	position: absolute;
+}
+
+.g1.gAxisT {
+	left: 221px;
+	top: 204px;
+}
+
+.g1.gAxisV {
+	left: 371px;
+	top: 95px;
+}
+
+.g2.gAxisT {
+	left: 337px;
+	top: 204px;
+}
+
+.g2.gAxisV {
+	left: 529px;
+	top: 116px;
+}
+
+.g3.gAxisT {
+	left: 369px;
+	top: 204px;
+}
+
+.g3.gAxisV {
+	left: 505px;
+	top: 159px;
+}
+
+.el-threads {
+	float: right;
+}
+
+.el-threads table {
+	width: 330px;
+	/* margin: 0px; */
+}
+
+.el-threads table td {
+	text-align: center;
+	padding: 1px;
+	vertical-align: middle;
+	color: #3495d8;
+}
+
+.el-threads table thead td {
+	background: #a50021;
+	font-family: 'Istok_B';
+	font-size: 18px;
+	color: #fff;
+}
+
+.show-experiment-btn {
+	top: 0px;
+	left: 0;
+	position: absolute;
+	z-index: 99;
+	margin-top: -6px;
+}
+
+
+.show-experimen .gridLines {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	background-image:
+		linear-gradient(#ffe5b6 2px, transparent 2px),
+		linear-gradient(90deg, #ffe5b6 2px, transparent 2px),
+		linear-gradient(rgba(255, 229, 182, 0) 1px, transparent 1px),
+		linear-gradient(90deg, rgba(255, 229, 182, 0) 1px, transparent 1px);
+	background-size: 30px 30px, 30px 30px, 6px 6px, 6px 6px;
+}
+
+.show-experimen .graph {
+	position: relative;
+	width: 107%;
+	height: 422px;
+	top: 48px;
+}
+
+.show-experimen.graph-section {
+	position: relative;
+	width: 675px;
+	margin: auto;
+	float: none;
+}
+
+.show-experimen.graph-section .gridLabel.velocity {
+	top: 7px;
+	left: 10px;
+	transform: rotate(0deg);
+}
+
+.show-experimen.graph-section .aly_8 {
+	top: 80px;
+}
+
+.show-experimen.graph-section .aly_4 {
+	top: 80px;
+}
+
+.show-experimen.graph-section .aly_5 {
+	top: 231px;
+}
+.show-experimen.graph-section .aly_6 {
+	top: 200px;
+}
+
+.show-experimen.graph-section .aly_7 {
+	top: 140px;
+}
+
+
+
+
+
+.show-experimen.graph-section .alx_0 {
+	left: 26px;
+}
+
+.show-experimen.graph-section .alx_5 {
+	left: 178px;
+}
+
+.show-experimen.graph-section .alx_10 {
+	left: 327px;
+}
+
+.show-experimen.graph-section .alx_15 {
+	left: 477px;
+}
+
+.show-experimen.graph-section .alx_20 {
+	left: 627px;
+}
+
+.show-experimen.graph-section h4 {
+	font-family: "Istok_R";
+	font-weight: bold;
+	text-align: center;
+	padding-top: 0px;
+}
+
+
+.titleBar {
+    background-color: #00bae4;
+    color: #fff;
+    font-size: 30px;
+    line-height: 1;
+    padding: 36px 0 4px 26px;
+    font-family: "Hero";
+    margin-bottom: 3px;
+}
+
+
+
+.motion-sensor1 {
+	width: 60px;
+	position: absolute;
+	line-height: 20px;
+	left: 0px;
+}
+
+
+.graphImg1 {
+	position: absolute;
+	top: 32px;
+	left: 24px;
+	width: 100%;
+	height: 100%;
+	background-image: url("../img/graph1.png");
+	background-repeat: no-repeat;
+}
+
+
+.axisLabel1.y_axis>div {
+	position: absolute;
+	right: 702px;
+	font-size: 16px;
+}
+
+
+
+.friction-sensor1{
+	position: absolute;
+	margin-top: 120px;
+	left: 50px;
+}
+
+.contentb{
+
+	
+	margin-left: 705px;
+	margin-top: -30px
+}
+
+
+
+.bottom1 {
+    border-top: 1px solid #fff;
+    display: block;
+    
+}
+
+.bottom2 {
+    border-top: 1px solid #000;
+    display: block;
+    margin-left: 4px;
+    
+}
+
+
+.h4, .h5, .h6, h4, h5, h6 {
+    margin-top: -6px;
+    margin-bottom: -15px;
+}
+
+.clickableArea {
+	pointer-events: none;
+}
+
+.craMsg {
+	position: relative;
+    text-align: center;
+    /*margin-top: 30px;*/
+    margin-top: 0px;
+    pointer-events: none;
+    color:red;
+}
+
+
+
+
+
+
+
+
+.Diffraction-section{
+	width: 720px;
+	height: 480px;
+	background: #DBEEF4;
+	margin: auto;
+	position: relative;
+}
+
+.blank-spot-section{
+	width: 360px;
+    height: 240px;
+    background: #FFE0C1;
+    position: absolute;
+    bottom: 0;
+}
+
+.two-checkbox{
+	display: flex;
+	flex-direction: column;
+}
+
+.middle-btns{
+	display: inline-block;
+    margin: 0 3px 10px 0;
+	width: 59%;
+	margin: auto;
+	text-align: center;
+}
+
+.pulse-section{
+	/* border: 1px solid; */
+    width: 720px;
+    margin: auto;
+    height: 400px;
+}
+
+.displayArea{
+	background: url("../img/pulseImg.png") no-repeat;
+	background-position: center;
+    background-size: contain;
+    width: 100%;
+	height: 100%;
+	
+	/* position : relative;
+	top: 87px;
+    left: 1px;
+    width: 100%;
+    height: 100%; */
+}
+
+
+.shap_marR {
+	margin-right: 32px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
