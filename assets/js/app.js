@@ -3,8 +3,7 @@
 angular.module('playerApp', ['ngSanitize'])
     .controller('playerCtrl', ['$scope', '$interval', '$timeout', function ($scope, $interval, $timeout) {
         var thisRef = $scope;
-
-
+        var countOfLines = 13;
         /*-- variables : starts --*/
         thisRef.SelHeight = 1;
         thisRef.SelImpact = 1;
@@ -23,7 +22,7 @@ angular.module('playerApp', ['ngSanitize'])
            thisRef.setEvents = function () {
                
             angular.element(".dropDown").click(function (event) {
-                console.log(event.target.id);
+                // console.log(event.target.id);
                 
                 angular.element(".dropDown1 ul").removeClass("open");
                 if (event.target.id && !angular.element("#" + event.target.id + " ul").hasClass("open")) {
@@ -34,7 +33,7 @@ angular.module('playerApp', ['ngSanitize'])
             });
 
             angular.element(".dropDown1").click(function (event) {
-                console.log(event.target.id);
+                // console.log(event.target.id);
                 angular.element(".dropDown ul").removeClass("open");
                 if (event.target.id && !angular.element("#" + event.target.id + " ul").hasClass("open")) {
                 event.stopPropagation();
@@ -43,9 +42,10 @@ angular.module('playerApp', ['ngSanitize'])
                 }
             });
 
-            $("body").bind("click", function(){
-                angular.element("ul").removeClass("open");
-            });
+            // $("body").bind("click", function(){
+                
+            //     angular.element("ul").removeClass("open");
+            // });
 
             thisRef.InitialChangeP1 = function(val){
                 thisRef.appliedInitialValP1 = val;
@@ -79,22 +79,51 @@ angular.module('playerApp', ['ngSanitize'])
             $("#ImpactOptionCont").addClass("dim");
             $("#ImpactOptionCont1").addClass("dim");
             $("#DvStartSim").addClass("dim");
+            
+            
+            $('.left-wave').css({'animation': 'leftToRight 6s '});
+            $('.right-wave').css({'animation': 'rightToLeft 6s '});
          };
 
          
 
          /*-- functions : starts --*/
+         var placeBalls = function(){
+             let el = `<div class="red-ball balls"></div>
+             <div class="blue-ball balls"></div>
+             <div class="green-ball balls"></div>`;
+             angular.element('.displayArea').append(el);
+             waves();
 
-         thisRef.InitActivity = function (){
+         }
+         var waves = function(){
+            let el = `<div class="wave-up left-wave up-normal-unit-6"></div>
+             <div class="wave-up right-wave up-normal-unit-6"></div>`;
+             angular.element('.displayArea').append(el);
+         }
          
+         var initActivity = function (){
+            let el = ''
+            for(let i = 1; i<= countOfLines; i++){
+               
+                i === 7 ? el+= `<div id="line_${i}" class="black-line"></div>` :
+                
+                el+= `<div id="line_${i}" class="grey-line"></div>`
+                
+            }
+            angular.element('.displayArea').html(el);
+            placeBalls();
+
+
+            
          };
 
-         thisRef.InitActivity();
+        initActivity();
 
          thisRef.ResetSimulation = function (){
              console.log('reset')
               // reset dropdown
-              angular.element(".dropDown ul").removeClass("open");
+              angular.element(".dropDown ul").removeClass("open");q
               angular.element(".dropDown1 ul").removeClass("open");
               //reset trolley
             //   thisRef.SetCurrentScene();
